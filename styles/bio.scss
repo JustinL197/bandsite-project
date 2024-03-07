@@ -1,0 +1,11 @@
+@import './partials/global';
+@import './partials/mixins';
+
+.hero{
+    background-image: url(../assets/Images/hero-bio.jpg);
+    background-size: cover;
+
+    &__title{
+        margin:0;
+    }
+}

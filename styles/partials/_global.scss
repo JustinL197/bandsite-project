@@ -1,0 +1,104 @@
+@import './font-type';
+
+//colors
+$primary-text-darkbg: #323232;
+$seconday-text-color: #AFAFAF;
+$primary-text-lighbg: #FFFFFF;
+
+$bandSite-DarkBlack: #000000;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
+
+//padding
+$padding-before-headlines: 24px;
+$padding-after-headlines: 16px;
+$padding-between-components: 16px;
+
+//type-kit
+$page-header-font-size: 24px;
+$page-header-line-height: 32px;
+$page-header-font-weight: 700; // Bold
+
+$section-header-font-size: 24px;
+$section-header-line-height: 32px;
+$section-header-font-weight: 700; // Bold
+
+$subheader-font-size: 14px;
+$subheader-line-height: 22px;
+$subheader-font-weight: 600; // Demi
+
+$body-copy-font-size: 13px;
+$body-copy-line-height: 18px;
+$body-copy-font-weight: 400; // Regular
+
+$footer-copy-font-size: 13px;
+$footer-copy-line-height: 18px;
+$footer-copy-font-weight: 400; // Regular
+
+$labels-buttons-font-size: 10px;
+$labels-buttons-line-height: 20px;
+$labels-buttons-font-weight: 700; // Bold
+
+
+//default margin/font style for html
+
+body{
+    font-family: 'AvenirNextTLPro', sans-serif;
+    margin: 0;
+}
+
+.main-nav{
+    display: flex;
+    background-color: $primary-text-darkbg;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__logo{
+        padding-top: 16px;
+        max-width: 120px;
+        max-height: 20px;
+    }
+
+    &__list{
+        display: flex;
+        width: 100%;
+        padding: 0;
+    }
+
+    &__list-item{
+        display: inline;
+        width:50%;
+        text-align: center;
+        list-style: none;
+        font-size: $subheader-font-size;
+    }
+    
+
+    &__link{
+        display:block;
+        position:relative;
+        text-decoration: none;
+        color: $mercury;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0; // Start at the center of the element
+            right:0;
+            bottom: -17px; // Adjust this value to place the underline below the text
+            background: white;
+            width: 0%; // Full width of the element
+            height: 3px; // Thickness of the underline
+        }
+        
+        &--active::after {
+            width: 100%; // Underline will always be the full width on hover and when active
+        }
+
+        &--active{
+            color:$primary-text-lighbg;
+            font-weight: $subheader-font-weight;
+        }
+    }
+}
