@@ -1,4 +1,6 @@
+@use './mixins' as mixin;
 @import './font-type';
+
 
 //colors
 $primary-text-darkbg: #323232;
@@ -54,16 +56,51 @@ body{
     align-items: center;
     justify-content: center;
 
+    @include mixin.tablet{
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+    }
+
+    @include mixin.desktop{
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+    }
+
     &__logo{
         padding-top: 16px;
         max-width: 120px;
         max-height: 20px;
+
+        @include mixin.tablet{
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 36px;
+            padding-right: 72px;
+        }
+
+        @include mixin.desktop{
+            width: 100px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 148px;
+            padding-right: 72px;
+        }
     }
 
     &__list{
         display: flex;
         width: 100%;
         padding: 0;
+
+        @include mixin.tablet{
+            width: auto;
+        }
+
+        @include mixin.desktop{
+            width: auto;
+        }
     }
 
     &__list-item{
@@ -72,8 +109,17 @@ body{
         text-align: center;
         list-style: none;
         font-size: $subheader-font-size;
+
+        @include mixin.tablet{
+            width: 100%;
+            padding-right: 48px;
+        }
+
+        @include mixin.desktop{
+            width: 100%;
+            padding-right: 48px;
+        }
     }
-    
 
     &__link{
         display:block;
@@ -84,17 +130,26 @@ body{
         &::after {
             content: '';
             position: absolute;
-            left: 0; // Start at the center of the element
-            right:0;
-            bottom: -17px; // Adjust this value to place the underline below the text
+            left: 0; // positioning the ::after content
+            right:0; //positioning the ::after contnet
+            bottom: -17px; 
             background: white;
             width: 0%; // Full width of the element
             height: 3px; // Thickness of the underline
+
+            @include mixin.tablet{
+                bottom: -25px; // Adjust this value to place the underline below the text
+            }
+
+            @include mixin.desktop{
+                bottom: -25px; 
+            }
         }
         
-        &--active::after {
+        &--active::after, &:hover::after{
             width: 100%; // Underline will always be the full width on hover and when active
         }
+
 
         &--active{
             color:$primary-text-lighbg;
