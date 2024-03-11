@@ -1,6 +1,8 @@
 @use './partials/mixins' as mixin;
 @import './partials/global';
 
+
+// Styling for the hero section
 .hero{
     background-image: url(../assets/Images/hero-bio.jpg);
     background-size: cover;
@@ -8,19 +10,20 @@
     display: flex; 
     align-items: center;
     position: relative;
-    height: 20vh;
+    aspect-ratio: 10/6;
     width: 100%;
 
-    @include mixin.mobile-l{
-        height: 30vh;
-    }
-
     @include mixin.tablet{
-        height: 45vh;
+        aspect-ratio: 9/5;
     }
 
     @include mixin.desktop{
-        height: 60vh;
+        aspect-ratio: 5/2;
+        // height: 40vh;
+    }
+
+    @include mixin.ultrawide{
+        aspect-ratio: 3/1;
     }
 
     &__overlay {
@@ -56,5 +59,149 @@
             line-height: $page-header-line-height * 2.125;
             font-weight: 600;
         }
+
+        @include mixin.ultrawide{
+            padding-left: 148px;
+            font-size: $page-header-font-size * 2.5;
+            line-height: $page-header-line-height * 2.125;
+            font-weight: 600;
+        }
+    }
+}
+
+// Styling for the main
+
+.about-section{
+    display:flex;
+    flex-direction: column;
+    padding-right: 16px;
+    padding-left: 16px;
+
+    &__header{
+        padding-top: 24px;
+        padding-bottom: 16px;
+        margin:0;
+        font-size: $section-header-font-size;
+        line-height: $page-header-line-height;
+        font-weight: 600;
+    }   
+
+    &__image{
+        padding-bottom: 16px;
+        margin:0;
+        width: 100%;
+        aspect-ratio: 10/6;
+        padding-bottom: 16px;
+    }
+
+    &__image-description{
+        margin:0;
+        font-size:$body-copy-font-size;
+        line-height: $body-copy-line-height;
+        font-weight: 600;
+    }
+
+    &__indent{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 16px;
+    }
+    
+    &__subheader{
+        font-size: $subheader-font-size;
+        font-weight: 500;
+        line-height: $subheader-line-height;
+        padding-bottom: 16px;
+        margin: 0;
+    }
+
+    &__paragraph1{
+        margin:0;
+        font-size:$body-copy-font-size;
+        line-height: $body-copy-line-height;
+        padding-bottom: 16px;
+    }
+
+    &__paragraph2{
+        margin:0;
+        font-size:$body-copy-font-size;
+        line-height: $body-copy-line-height;
+        padding-bottom: 16px;
+    }
+}
+
+.gallery{
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    background-color: $alabaster;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    &__header{
+        font-size: $page-header-font-size;
+        padding-bottom: 16px;
+        margin:0;
+        font-weight: 600;
+    }
+
+    &__image{
+        width:100%;
+        background-size: cover;
+        padding-bottom: 24px;
+    }
+}
+
+.footer{
+    background-color: $primary-text-darkbg;
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+
+    &__header{
+        font-size: $page-header-font-size;
+        font-weight: 600;
+        color: white;
+        padding-top: 16px;
+        padding-bottom: 24px;
+        margin: 0;
+    }
+
+    &__socials{
+        display: flex;
+        gap: 30px;
+    }
+
+    &__social-logo{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.info{
+    color: white;
+    display:flex;
+    flex-direction: column;
+
+    &__subheader{
+        color: white;
+        font-size:$footer-copy-font-size;
+        line-height: $footer-copy-line-height;
+        font-weight: 600;
+
+    }
+
+    &__logo{
+        padding-top: 36px;
+        width: 120px;
+        height: 25px;
+    }
+
+    &__content{
+        font-size: 16px;
+        line-height: 20px;
     }
 }

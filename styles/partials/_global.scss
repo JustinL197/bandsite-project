@@ -17,23 +17,23 @@ $padding-after-headlines: 16px;
 $padding-between-components: 16px;
 
 //type-kit
-$page-header-font-size: 24px;
+$page-header-font-size: 32px;
 $page-header-line-height: 32px;
 $page-header-font-weight: 700; // Bold
 
-$section-header-font-size: 24px;
+$section-header-font-size: 32px;
 $section-header-line-height: 32px;
 $section-header-font-weight: 700; // Bold
 
-$subheader-font-size: 14px;
+$subheader-font-size: 20px;
 $subheader-line-height: 22px;
 $subheader-font-weight: 600; // Demi
 
-$body-copy-font-size: 13px;
-$body-copy-line-height: 18px;
+$body-copy-font-size: 18px;
+$body-copy-line-height: 24px;
 $body-copy-font-weight: 400; // Regular
 
-$footer-copy-font-size: 13px;
+$footer-copy-font-size: 16px;
 $footer-copy-line-height: 18px;
 $footer-copy-font-weight: 400; // Regular
 
@@ -63,6 +63,16 @@ body{
     }
 
     @include mixin.desktop{
+        padding-top: 24px;
+        padding-bottom: 24px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+    }
+
+    @include mixin.ultrawide{
+        padding-top: 24px;
+        padding-bottom: 24px;
         flex-direction: row;
         align-items: center;
         justify-content: start;
@@ -81,7 +91,17 @@ body{
         }
 
         @include mixin.desktop{
-            width: 100px;
+            width: 120px;
+            height: 20px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            padding-left: 148px;
+            padding-right: 72px;
+        }
+
+        @include mixin.ultrawide{
+            width: 120px;
+            height: 20px;
             padding-top: 24px;
             padding-bottom: 24px;
             padding-left: 148px;
@@ -101,6 +121,10 @@ body{
         @include mixin.desktop{
             width: auto;
         }
+
+        @include mixin.ultrawide{
+            width: auto;
+        }
     }
 
     &__list-item{
@@ -116,6 +140,11 @@ body{
         }
 
         @include mixin.desktop{
+            width: 100%;
+            padding-right: 48px;
+        }
+
+        @include mixin.ultrawide{
             width: 100%;
             padding-right: 48px;
         }
@@ -142,7 +171,11 @@ body{
             }
 
             @include mixin.desktop{
-                bottom: -25px; 
+                bottom: -52px; 
+            }
+
+            @include mixin.ultrawide{
+                bottom: -52px; 
             }
         }
         
