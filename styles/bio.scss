@@ -48,7 +48,7 @@
 
         @include mixin.tablet{ 
             padding-left: 36px;
-            font-size: $page-header-font-size * 2.5;
+            font-size: 60px;
             line-height: $page-header-line-height * 2.125;
             font-weight: 600;
         }
@@ -77,6 +77,11 @@
     padding-right: 16px;
     padding-left: 16px;
 
+    @include mixin.tablet{
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+
     &__header{
         padding-top: 24px;
         padding-bottom: 16px;
@@ -84,6 +89,13 @@
         font-size: $section-header-font-size;
         line-height: $page-header-line-height;
         font-weight: 600;
+
+        @include mixin.tablet{
+            padding-top: 48px;
+            padding-bottom: 36px;
+            font-size: 36px;
+            line-height: $page-header-line-height;
+        }
     }   
 
     &__image{
@@ -91,7 +103,14 @@
         margin:0;
         width: 100%;
         aspect-ratio: 10/6;
-        padding-bottom: 16px;
+
+        @include mixin.tablet{
+            padding-bottom: 36px;
+            aspect-ratio: 9/5;
+            height: auto;
+            width: 85%;
+            align-self: center;
+        }
     }
 
     &__image-description{
@@ -99,12 +118,24 @@
         font-size:$body-copy-font-size;
         line-height: $body-copy-line-height;
         font-weight: 600;
+
+        @include mixin.tablet{
+            font-size: 24px;
+            font-weight: 500;
+            width: 85%;
+            align-self: center;
+        }
     }
 
     &__indent{
         margin-top: 10px;
         margin-bottom: 10px;
         padding-bottom: 16px;
+
+        @include mixin.tablet{
+            font-size: 16px;
+            font-weight: 500;
+        }
     }
     
     &__subheader{
@@ -113,6 +144,13 @@
         line-height: $subheader-line-height;
         padding-bottom: 16px;
         margin: 0;
+
+        @include mixin.tablet{
+            font-size: 24px;
+            font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
     }
 
     &__paragraph1{
@@ -120,6 +158,10 @@
         font-size:$body-copy-font-size;
         line-height: $body-copy-line-height;
         padding-bottom: 16px;
+
+        @include mixin.tablet{
+            font-size: 14px;
+        }
     }
 
     &__paragraph2{
@@ -127,6 +169,20 @@
         font-size:$body-copy-font-size;
         line-height: $body-copy-line-height;
         padding-bottom: 16px;
+
+        @include mixin.tablet{
+            font-size: 14px;
+        }
+    }
+
+    &__subcontainer{
+        @include mixin.tablet{
+            display: flex;
+            width: 85%;
+            align-self: center;
+            gap: 35px;
+            padding-bottom: 24px;
+        }
     }
 }
 
@@ -138,28 +194,63 @@
     padding-left: 16px;
     padding-right: 16px;
 
+    @include mixin.tablet{
+        padding-left: 32px;
+        padding-right: 32px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     &__header{
         font-size: $page-header-font-size;
         padding-bottom: 16px;
         margin:0;
         font-weight: 600;
+
+        @include mixin.tablet{
+            padding-top: 48px;
+            padding-bottom: 36px;
+            font-size: 36px;
+            line-height: $page-header-line-height;
+        }
+    }
+
+    &__container{
+
+        @include mixin.tablet{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 
     &__image{
         width:100%;
         background-size: cover;
         padding-bottom: 24px;
+
+        @include mixin.tablet{
+            width: 31%;
+        }
     }
+    
 }
 
 .footer{
     background-color: $primary-text-darkbg;
     display: flex;
+    position: relative;
     flex-direction: column;
     padding-top: 24px;
     padding-left: 16px;
     padding-right: 16px;
     margin: 0;
+
+    @include mixin.tablet{
+        padding-right: 32px;
+        padding-left: 32px;
+    }
 
     &__header{
         font-size: $page-header-font-size;
@@ -167,7 +258,9 @@
         color: white;
         padding-top: 16px;
         padding-bottom: 24px;
+        padding-right: 17px;
         margin: 0;
+
     }
 
     &__socials{
@@ -175,9 +268,13 @@
         gap: 30px;
     }
 
-    &__social-logo{
-        width: 30px;
-        height: 30px;
+    &__subcontainer{
+        @include mixin.tablet{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+        }
     }
 }
 
@@ -185,6 +282,20 @@
     color: white;
     display:flex;
     flex-direction: column;
+    position: relative;
+
+    @include mixin.tablet{
+        padding-bottom: 80px;
+    }
+
+    &__subcontainer{
+        @include mixin.tablet{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+    }
 
     &__subheader{
         color: white;
@@ -192,16 +303,36 @@
         line-height: $footer-copy-line-height;
         font-weight: 600;
 
+        @include mixin.tablet{
+            font-size: 14px;
+        }
     }
 
-    &__logo{
+    &__logo-image{
         padding-top: 36px;
         width: 120px;
         height: 25px;
-    }
 
+        @include mixin.tablet{
+            position:absolute;
+            top: -90px;
+            right: 0;
+        }
+    }
+    
     &__content{
         font-size: 16px;
-        line-height: 20px;
+        line-height: 25px;
+
+        @include mixin.tablet{
+            font-size: 14px;
+        }
+    }
+
+    &__copyright{
+        @include mixin.tablet{
+            position: absolute;
+            bottom: 0;
+        }
     }
 }

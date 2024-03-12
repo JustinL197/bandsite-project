@@ -137,6 +137,7 @@ body{
         @include mixin.tablet{
             width: 100%;
             padding-right: 48px;
+            font-size: 14px;
         }
 
         @include mixin.desktop{
