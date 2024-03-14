@@ -162,21 +162,22 @@ body{
             position: absolute;
             left: 0; // positioning the ::after content
             right:0; //positioning the ::after contnet
-            bottom: -17px; 
+            bottom: -16px; 
             background: white;
             width: 0%; // Full width of the element
             height: 3px; // Thickness of the underline
 
             @include mixin.tablet{
-                bottom: -25px; // Adjust this value to place the underline below the text
+                bottom: -28px; // Adjust this value to place the underline below the text
             }
 
             @include mixin.desktop{
-                bottom: -52px; 
+                bottom: -49px; 
+                height: 4px;
             }
 
             @include mixin.ultrawide{
-                bottom: -52px; 
+                bottom: -48px; 
             }
         }
         

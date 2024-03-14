@@ -82,6 +82,11 @@
         padding-right: 36px;
     }
 
+    @include mixin.desktop{
+        padding-left: 148px;
+        padding-right: 148px;
+    }
+
     &__header{
         padding-top: 24px;
         padding-bottom: 16px;
@@ -96,6 +101,13 @@
             font-size: 36px;
             line-height: $page-header-line-height;
         }
+
+        @include mixin.desktop{
+            padding-top: 48px;
+            padding-bottom: 36px;
+            font-size: 28px;
+            line-height: $page-header-line-height
+        }
     }   
 
     &__image{
@@ -105,6 +117,14 @@
         aspect-ratio: 10/6;
 
         @include mixin.tablet{
+            padding-bottom: 36px;
+            aspect-ratio: 9/5;
+            height: auto;
+            width: 85%;
+            align-self: center;
+        }
+
+        @include mixin.desktop{
             padding-bottom: 36px;
             aspect-ratio: 9/5;
             height: auto;
@@ -125,16 +145,30 @@
             width: 85%;
             align-self: center;
         }
+
+        @include mixin.desktop{
+            box-sizing: border-box;
+            padding-right: 200px;
+            font-size: 20px;
+            font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
     }
 
     &__indent{
         margin-top: 10px;
         margin-bottom: 10px;
-        padding-bottom: 16px;
 
         @include mixin.tablet{
             font-size: 16px;
             font-weight: 500;
+        }
+
+        @include mixin.desktop{
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
     
@@ -146,8 +180,19 @@
         margin: 0;
 
         @include mixin.tablet{
+            padding-top: 36px;
+            padding-bottom: 24px;
             font-size: 24px;
             font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
+
+        @include mixin.desktop{
+            padding-top: 32px;
+            padding-bottom: 24px;
+            font-size: 24px;
+            font-weight: 500;
             width: 85%;
             align-self: center;
         }
@@ -162,6 +207,10 @@
         @include mixin.tablet{
             font-size: 14px;
         }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
     }
 
     &__paragraph2{
@@ -173,10 +222,22 @@
         @include mixin.tablet{
             font-size: 14px;
         }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
     }
 
     &__subcontainer{
         @include mixin.tablet{
+            display: flex;
+            width: 85%;
+            align-self: center;
+            gap: 35px;
+            padding-bottom: 24px;
+        }
+
+        @include mixin.desktop{
             display: flex;
             width: 85%;
             align-self: center;
@@ -193,10 +254,19 @@
     background-color: $alabaster;
     padding-left: 16px;
     padding-right: 16px;
+    padding-bottom: 16px;
 
     @include mixin.tablet{
         padding-left: 32px;
         padding-right: 32px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include mixin.desktop{
+        padding-left: 148px;
+        padding-right: 148px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -214,11 +284,24 @@
             font-size: 36px;
             line-height: $page-header-line-height;
         }
+
+        @include mixin.desktop{
+            padding-top: 48px;
+            padding-bottom: 36px;
+            font-size: 28px;
+            line-height: $page-header-line-height;
+        }
     }
 
     &__container{
 
         @include mixin.tablet{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @include mixin.desktop{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -231,6 +314,10 @@
         padding-bottom: 24px;
 
         @include mixin.tablet{
+            width: 31%;
+        }
+
+        @include mixin.desktop{
             width: 31%;
         }
     }
@@ -250,6 +337,11 @@
     @include mixin.tablet{
         padding-right: 32px;
         padding-left: 32px;
+    }
+
+    @include mixin.desktop{
+        padding-right: 148px;
+        padding-left: 148px;
     }
 
     &__header{
@@ -275,6 +367,13 @@
             align-items: center;
             gap: 50px;
         }
+
+        @include mixin.desktop{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+        }
     }
 }
 
@@ -288,8 +387,19 @@
         padding-bottom: 80px;
     }
 
+    @include mixin.desktop{
+        padding-bottom: 80px;
+    }
+
     &__subcontainer{
         @include mixin.tablet{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        @include mixin.desktop{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -306,6 +416,10 @@
         @include mixin.tablet{
             font-size: 14px;
         }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
     }
 
     &__logo-image{
@@ -314,6 +428,12 @@
         height: 25px;
 
         @include mixin.tablet{
+            position:absolute;
+            top: -90px;
+            right: 0;
+        }
+
+        @include mixin.desktop{
             position:absolute;
             top: -90px;
             right: 0;
@@ -327,10 +447,19 @@
         @include mixin.tablet{
             font-size: 14px;
         }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
     }
 
     &__copyright{
         @include mixin.tablet{
+            position: absolute;
+            bottom: 0;
+        }
+
+        @include mixin.desktop{
             position: absolute;
             bottom: 0;
         }
