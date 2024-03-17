@@ -1,7 +1,6 @@
 //breakpoints
 $breakpoint-tablet: 768px; 
 $breakpoint-desktop: 1280px;
-$breakpoint-ultrawide: 2560px;
 
 
 @mixin tablet{
@@ -11,13 +10,7 @@ $breakpoint-ultrawide: 2560px;
 }
 
 @mixin desktop{
-    @media (min-width: $breakpoint-desktop) and (max-width: ($breakpoint-ultrawide - 1px)){
-        @content;
-    }
-}
-
-@mixin ultrawide{
-    @media (min-width: $breakpoint-ultrawide){
+    @media (min-width: $breakpoint-desktop){
         @content;
     }
 }

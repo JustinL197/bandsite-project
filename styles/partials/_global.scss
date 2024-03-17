@@ -1,54 +1,14 @@
 @use './mixins' as mixin;
+@import './variables';
 @import './font-type';
 
-
-//colors
-$primary-text-darkbg: #323232;
-$seconday-text-color: #AFAFAF;
-$primary-text-lighbg: #FFFFFF;
-
-$bandSite-DarkBlack: #000000;
-$mercury: #E1E1E1;
-$alabaster: #FAFAFA;
-
-//padding
-$padding-before-headlines: 24px;
-$padding-after-headlines: 16px;
-$padding-between-components: 16px;
-
-//type-kit
-$page-header-font-size: 32px;
-$page-header-line-height: 32px;
-$page-header-font-weight: 700; // Bold
-
-$section-header-font-size: 32px;
-$section-header-line-height: 32px;
-$section-header-font-weight: 700; // Bold
-
-$subheader-font-size: 20px;
-$subheader-line-height: 22px;
-$subheader-font-weight: 600; // Demi
-
-$body-copy-font-size: 18px;
-$body-copy-line-height: 24px;
-$body-copy-font-weight: 400; // Regular
-
-$footer-copy-font-size: 16px;
-$footer-copy-line-height: 18px;
-$footer-copy-font-weight: 400; // Regular
-
-$labels-buttons-font-size: 10px;
-$labels-buttons-line-height: 20px;
-$labels-buttons-font-weight: 700; // Bold
-
-
 //default margin/font style for html
-
 body{
     font-family: 'AvenirNextTLPro', sans-serif;
     margin: 0;
 }
 
+// Styling for the nav-bar 
 .main-nav{
     display: flex;
     background-color: $primary-text-darkbg;
@@ -57,6 +17,8 @@ body{
     justify-content: center;
 
     @include mixin.tablet{
+        padding-top: 16px;
+        padding-bottom: 16px;
         flex-direction: row;
         align-items: center;
         justify-content: start;
@@ -70,42 +32,21 @@ body{
         justify-content: start;
     }
 
-    @include mixin.ultrawide{
-        padding-top: 24px;
-        padding-bottom: 24px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: start;
-    }
-
     &__logo{
-        padding-top: 16px;
-        max-width: 120px;
-        max-height: 20px;
+        padding-top: $padding-mobile;
+        width: 150px;
+        height: 40px;
 
         @include mixin.tablet{
-            padding-top: 24px;
-            padding-bottom: 24px;
-            padding-left: 36px;
-            padding-right: 72px;
+            width: 120px;
+            height: 25px;
+            padding: 0 72px 0 36px;
         }
 
         @include mixin.desktop{
             width: 120px;
-            height: 20px;
-            padding-top: 24px;
-            padding-bottom: 24px;
-            padding-left: 148px;
-            padding-right: 72px;
-        }
-
-        @include mixin.ultrawide{
-            width: 120px;
-            height: 20px;
-            padding-top: 24px;
-            padding-bottom: 24px;
-            padding-left: 148px;
-            padding-right: 72px;
+            height: 25px;
+            padding: 0 72px 0 148px;
         }
     }
 
@@ -121,10 +62,6 @@ body{
         @include mixin.desktop{
             width: auto;
         }
-
-        @include mixin.ultrawide{
-            width: auto;
-        }
     }
 
     &__list-item{
@@ -132,7 +69,7 @@ body{
         width:50%;
         text-align: center;
         list-style: none;
-        font-size: $subheader-font-size;
+        font-size: 18px;
 
         @include mixin.tablet{
             width: 100%;
@@ -143,11 +80,7 @@ body{
         @include mixin.desktop{
             width: 100%;
             padding-right: 48px;
-        }
-
-        @include mixin.ultrawide{
-            width: 100%;
-            padding-right: 48px;
+            font-size: 14px;
         }
     }
 
@@ -157,50 +90,47 @@ body{
         text-decoration: none;
         color: $mercury;
 
+        // Styling for the hover-animation 
         &::after {
             content: '';
             position: absolute;
-            left: 0; // positioning the ::after content
-            right:0; //positioning the ::after contnet
+            left: 0;
+            right:0; 
             bottom: -16px; 
             background: white;
-            width: 0%; // Full width of the element
-            height: 3px; // Thickness of the underline
+            width: 0%;
+            height: 3px;
 
             @include mixin.tablet{
-                bottom: -28px; // Adjust this value to place the underline below the text
+                bottom: -31px;
             }
 
             @include mixin.desktop{
-                bottom: -49px; 
+                bottom: -41px; 
                 height: 4px;
             }
-
-            @include mixin.ultrawide{
-                bottom: -48px; 
-            }
-        }
+        } 
         
         &--active::after, &:hover::after{
-            width: 100%; // Underline will always be the full width on hover and when active
+            width: 100%;
         }
-
 
         &--active{
             color:$primary-text-lighbg;
-            font-weight: $subheader-font-weight;
+            font-weight: 600;
         }
     }
 }
 
+// Styling for the footer section
 .footer{
     background-color: $primary-text-darkbg;
     display: flex;
     position: relative;
     flex-direction: column;
     padding-top: 24px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
     margin: 0;
 
     @include mixin.tablet{
@@ -230,21 +160,37 @@ body{
     }
 
     &__header{
-        font-size: $page-header-font-size;
+        font-size: $header-font-size;
         font-weight: 600;
         color: white;
-        padding-top: 16px;
-        padding-bottom: 24px;
-        padding-right: 17px;
+        padding-top: $padding-mobile;
+        padding-bottom: $padding-after-content-mobile;
         margin: 0;
-
     }
 
     &__socials{
-        padding-left: 8px;
         display: flex;
         gap: 30px;
+        align-items: center;
     } 
+
+    &__logo{
+        width: 30px;
+        height: 30px;
+        padding-bottom: 12px;
+
+        @include mixin.tablet{
+            width: auto;
+            height: auto;
+            padding-bottom: 0;
+        }
+
+        @include mixin.desktop{
+            width: auto;
+            height: auto;
+            padding-bottom: 0;
+        }
+    }
 }
 
 .contact-info{
@@ -277,11 +223,18 @@ body{
         }
     }
 
+    &__block{
+        &--indentation{
+            padding-left: 5px;
+        }
+    }
+
     &__header{
-        color: white;
-        font-size:$footer-copy-font-size;
-        line-height: $footer-copy-line-height;
+        color: $primary-text-lighbg;
+        font-size: 16px;
+        line-height: 18px;
         font-weight: 600;
+
 
         @include mixin.tablet{
             font-size: 14px;
@@ -295,6 +248,7 @@ body{
     &__details{
         font-size: 16px;
         line-height: 25px;
+        padding-bottom: 10px;
 
         @include mixin.tablet{
             font-size: 14px;
@@ -319,21 +273,26 @@ body{
 
     &__email{
         text-decoration: none;
-        color: white;
+        color: $primary-text-lighbg;
+        padding-bottom: 20px;
     }
 
     &__logo{
         padding-top: 36px;
-        width: 120px;
-        height: 25px;
+        width: 150px;
+        height: 40px;
 
         @include mixin.tablet{
+            width: 120px;
+            height: 25px;
             position:absolute;
             top: -90px;
             right: 0;
         }
 
         @include mixin.desktop{
+            width: 120px;
+            height: 25px;
             position:absolute;
             top: -90px;
             right: 0;
