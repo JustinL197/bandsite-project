@@ -192,3 +192,152 @@ body{
         }
     }
 }
+
+.footer{
+    background-color: $primary-text-darkbg;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+
+    @include mixin.tablet{
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    @include mixin.desktop{
+        padding-right: 148px;
+        padding-left: 148px;
+    }
+}
+
+.subcontainer{
+    @include mixin.tablet{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+    }
+
+    @include mixin.desktop{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+    }
+
+    &__header{
+        font-size: $page-header-font-size;
+        font-weight: 600;
+        color: white;
+        padding-top: 16px;
+        padding-bottom: 24px;
+        padding-right: 17px;
+        margin: 0;
+
+    }
+
+    &__socials{
+        padding-left: 8px;
+        display: flex;
+        gap: 30px;
+    } 
+}
+
+.contact-info{
+    color: white;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+
+    @include mixin.tablet{
+        padding-bottom: 80px;
+    }
+
+    @include mixin.desktop{
+        padding-bottom: 80px;
+    }
+
+    &__container{
+        @include mixin.tablet{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        @include mixin.desktop{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+    }
+
+    &__header{
+        color: white;
+        font-size:$footer-copy-font-size;
+        line-height: $footer-copy-line-height;
+        font-weight: 600;
+
+        @include mixin.tablet{
+            font-size: 14px;
+        }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
+    }
+
+    &__details{
+        font-size: 16px;
+        line-height: 25px;
+
+        @include mixin.tablet{
+            font-size: 14px;
+        }
+
+        @include mixin.desktop{
+            font-size: 14px;
+        }
+
+            &--copyright{
+                @include mixin.tablet{
+                    position: absolute;
+                    bottom: 0;
+                }
+        
+                @include mixin.desktop{
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+    }
+
+    &__email{
+        text-decoration: none;
+        color: white;
+    }
+
+    &__logo{
+        padding-top: 36px;
+        width: 120px;
+        height: 25px;
+
+        @include mixin.tablet{
+            position:absolute;
+            top: -90px;
+            right: 0;
+        }
+
+        @include mixin.desktop{
+            position:absolute;
+            top: -90px;
+            right: 0;
+        }
+    }
+    
+}
