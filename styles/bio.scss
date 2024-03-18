@@ -1,0 +1,300 @@
+@use './partials/mixins' as mixin;
+@import './partials/variables';
+@import './partials/global';
+
+
+// Styling for the hero section
+.hero{
+    background-image: url(../assets/Images/hero-bio.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex; 
+    align-items: center;
+    position: relative;
+    aspect-ratio: 10/6;
+    width: 100%;
+
+    @include mixin.tablet{
+        aspect-ratio: 9/5;
+    }
+
+    @include mixin.desktop{
+        aspect-ratio: 4/2;
+    }
+
+    // 50% opacity for hero image
+    &__overlay {
+        content:'';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0; 
+        bottom: 0;
+        background: rgba(50, 50, 50, 0.5);
+        z-index: 1;
+    }
+
+    &__title {
+        padding-left: $padding-mobile;
+        margin:0;
+        color: $primary-text-lighbg;
+        font-size: 2.5rem;
+        line-height: $font-line-height;
+        font-weight: 600;
+        z-index: 2;
+
+        @include mixin.tablet{ 
+            padding-left: $padding-tablet;
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+            font-weight: 600;
+        }
+
+        @include mixin.desktop{
+            padding-left: $padding-desktop;
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// Styling for the "about-section" of main
+
+.about-section{
+    display:flex;
+    flex-direction: column;
+    padding: 0 $padding-mobile;
+
+    @include mixin.tablet{
+        padding: 0 $padding-tablet;
+    }
+
+    @include mixin.desktop{
+        padding: 0 $padding-desktop
+    }
+
+    &__header{
+        padding-top: 2.25rem;
+        padding-bottom: $padding-after-content-mobile;
+        margin:0;
+        font-size: $header-font-size;
+        line-height: $font-line-height;
+        font-weight: 600;
+
+        @include mixin.tablet{
+            padding-top: 3rem;
+            padding-bottom: $padding-after-content-tablet;
+            font-size: $header-font-size;
+            line-height: $font-line-height;
+        }
+
+        @include mixin.desktop{
+            padding-top: 3rem;
+            padding-bottom: 2.25rem;
+            font-size: $header-font-size;
+            line-height: $font-line-height;
+        }
+    }   
+
+    &__image{
+        padding-bottom: $padding-after-content-mobile;
+        margin:0;
+        width: 100%;
+        aspect-ratio: 10/6;
+
+        @include mixin.tablet{
+            padding-bottom: $padding-after-content-tablet;
+            aspect-ratio: 9/5;
+            height: auto;
+            width: 85%;
+            align-self: center;
+        }
+
+        @include mixin.desktop{
+            padding-bottom: 2.25rem;
+            aspect-ratio: 9/5;
+            height: auto;
+            width: 85%;
+            align-self: center;
+        }
+    }
+
+    &__image-description{
+        margin:0;
+        font-size: 1.25rem;
+        line-height: $font-line-height;
+        font-weight: 600;
+
+        @include mixin.tablet{
+            font-size: 1.5rem;
+            font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
+
+        @include mixin.desktop{
+            box-sizing: border-box;
+            padding-right: 12.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
+    }
+
+    &__indent{
+        padding-top: 0.625rem;
+        padding-bottom: 2rem;
+
+        @include mixin.tablet{
+            font-size: 1rem;
+            font-weight: 600;
+            padding-bottom: $padding-after-content-tablet;
+        }
+
+        @include mixin.desktop{
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+    
+    &__subheader{
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: $font-line-height;
+        padding-bottom: $padding-after-content-mobile;
+        margin: 0;
+
+        @include mixin.tablet{
+            padding-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            width: 85%;
+            align-self: center;
+        }
+
+        @include mixin.desktop{
+            padding-top: 2rem;
+            padding-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            width: 85%;
+            align-self: center;
+        }
+    }
+
+    &__paragraph{
+        margin:0;
+        font-size:1.25rem;
+        line-height: 1.75rem;
+        padding-bottom: $padding-after-content-mobile;
+
+        @include mixin.tablet{
+            font-size: 0.875rem;
+        }
+
+        @include mixin.desktop{
+            font-size: 0.875rem;
+        }
+    }
+
+    &__subcontainer{
+        @include mixin.tablet{
+            display: flex;
+            width: 85%;
+            align-self: center;
+            gap: 2.188rem;
+            padding-bottom: 1.5rem;
+        }
+
+        @include mixin.desktop{
+            display: flex;
+            width: 85%;
+            align-self: center;
+            gap: 2.188rem;
+            padding-bottom: 1.5rem;
+        }
+    }
+}
+
+// Styling for the gallery section 
+.gallery{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    background-color: $alabaster;
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
+
+    @include mixin.tablet{
+        padding-left: $padding-tablet;
+        padding-right: $padding-tablet;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include mixin.desktop{
+        padding-left: $padding-desktop;
+        padding-right: $padding-desktop;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__header{
+        font-size: $header-font-size;
+        padding-bottom: $padding-after-content-mobile;
+        margin:0;
+        font-weight: 600;
+
+        @include mixin.tablet{
+            padding-top: 2.25rem;
+            padding-bottom: 2.25rem;
+            font-size: $header-font-size;
+            line-height: $font-line-height;
+        }
+
+        @include mixin.desktop{
+            padding-top: 3rem;
+            padding-bottom: 2.25rem;
+            font-size: $header-font-size;
+            line-height: $font-line-height;
+        }
+    }
+
+    &__container{
+        @include mixin.tablet{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @include mixin.desktop{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
+    &__image{
+        width:100%;
+        background-size: cover;
+        padding-bottom: 1.5rem;
+        filter: grayscale(100%);
+
+        &:hover{
+            filter: grayscale(0);
+        }
+
+        @include mixin.tablet{
+            width: 31%;
+        }
+
+        @include mixin.desktop{
+            width: 31%;
+        }
+    }
+}

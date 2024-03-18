@@ -1,0 +1,302 @@
+@use './mixins' as mixin;
+@import './variables';
+@import './font-type';
+
+//default margin/font style for html
+body{
+    font-family: 'AvenirNextTLPro', sans-serif;
+    margin: 0;
+}
+
+// Styling for the nav-bar 
+.main-nav{
+    display: flex;
+    background-color: $primary-text-darkbg;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include mixin.tablet{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+    }
+
+    @include mixin.desktop{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+    }
+
+    &__logo{
+        padding-top: $padding-mobile;
+        width: 9.375rem;
+        height: 2.5rem;
+
+        @include mixin.tablet{
+            width: 7.5rem;
+            height: 1.563rem;
+            padding: 0 4.5rem 0 2.25rem;
+        }
+
+        @include mixin.desktop{
+            width: 7.5rem;
+            height: 1.563rem;
+            padding: 0 4.5rem 0 9.25rem;
+        }
+    }
+
+    &__list{
+        display: flex;
+        width: 100%;
+        padding: 0;
+
+        @include mixin.tablet{
+            width: auto;
+        }
+
+        @include mixin.desktop{
+            width: auto;
+        }
+    }
+
+    &__list-item{
+        display: inline;
+        width:50%;
+        text-align: center;
+        list-style: none;
+        font-size: 1.125rem;
+
+        @include mixin.tablet{
+            width: 100%;
+            padding-right: 3rem;
+            font-size: 0.875rem;
+        }
+
+        @include mixin.desktop{
+            width: 100%;
+            padding-right: 3rem;
+            font-size: 0.875rem;
+        }
+    }
+
+    &__link{
+        display:block;
+        position:relative;
+        text-decoration: none;
+        color: $mercury;
+
+        // Styling for the hover-animation 
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right:0; 
+            bottom: -16px; 
+            background: white;
+            width: 0%;
+            height: 0.188rem;
+
+            @include mixin.tablet{
+                bottom: -1.938rem;
+            }
+
+            @include mixin.desktop{
+                bottom: -2.563rem; 
+                height: 0.25rem;
+            }
+        } 
+        
+        &--active::after, &:hover::after{
+            width: 100%;
+        }
+
+        &--active{
+            color:$primary-text-lighbg;
+            font-weight: 600;
+        }
+    }
+}
+
+// Styling for the footer section
+.footer{
+    background-color: $primary-text-darkbg;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
+    margin: 0;
+
+    @include mixin.tablet{
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    @include mixin.desktop{
+        padding-right: 9.25rem;
+        padding-left: 9.25rem;
+    }
+}
+
+.subcontainer{
+    @include mixin.tablet{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3.125rem;
+    }
+
+    @include mixin.desktop{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3.125rem;
+    }
+
+    &__header{
+        font-size: $header-font-size;
+        font-weight: 600;
+        color: white;
+        padding-top: $padding-mobile;
+        padding-bottom: $padding-after-content-mobile;
+        margin: 0;
+    }
+
+    &__socials{
+        display: flex;
+        gap: 1.875rem;
+        align-items: center;
+    } 
+
+    &__logo{
+        width: 1.875rem;
+        height: 1.875rem;
+        padding-bottom: 0.75rem;
+
+        @include mixin.tablet{
+            width: auto;
+            height: auto;
+            padding-bottom: 0;
+        }
+
+        @include mixin.desktop{
+            width: auto;
+            height: auto;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.contact-info{
+    color: white;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+
+    @include mixin.tablet{
+        padding-bottom: 5rem;
+    }
+
+    @include mixin.desktop{
+        padding-bottom: 5rem;
+    }
+
+    &__container{
+        @include mixin.tablet{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 3.75rem;
+        }
+
+        @include mixin.desktop{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 3.75rem;
+        }
+    }
+
+    &__block{
+        &--indentation{
+            padding-left: 0.313rem;
+        }
+    }
+
+    &__header{
+        color: $primary-text-lighbg;
+        font-size: 1rem;
+        line-height: 1.125rem;
+        font-weight: 600;
+
+
+        @include mixin.tablet{
+            font-size: 0.875rem;
+        }
+
+        @include mixin.desktop{
+            font-size: 0.875rem;
+        }
+    }
+
+    &__details{
+        font-size: 1rem;
+        line-height: 1.563rem;
+        padding-bottom: 0.625rem;
+
+        @include mixin.tablet{
+            font-size: 0.875rem;
+        }
+
+        @include mixin.desktop{
+            font-size: 0.875rem;
+        }
+
+            &--copyright{
+                @include mixin.tablet{
+                    position: absolute;
+                    bottom: 0;
+                }
+        
+                @include mixin.desktop{
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+    }
+
+    &__email{
+        text-decoration: none;
+        color: $primary-text-lighbg;
+        padding-bottom: 1.25rem;
+    }
+
+    &__logo{
+        padding-top: 2.25rem;
+        width: 9.375rem;
+        height: 2.5rem;
+
+        @include mixin.tablet{
+            width: 7.5rem;
+            height: 1.563rem;
+            position:absolute;
+            top: -5.625rem;
+            right: 0;
+        }
+
+        @include mixin.desktop{
+            width: 7.5rem;
+            height: 1.563rem;
+            position:absolute;
+            top: -5.625rem;
+            right: 0;
+        }
+    }
+    
+}
