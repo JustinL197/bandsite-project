@@ -17,16 +17,16 @@ body{
     justify-content: center;
 
     @include mixin.tablet{
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         flex-direction: row;
         align-items: center;
         justify-content: start;
     }
 
     @include mixin.desktop{
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
         flex-direction: row;
         align-items: center;
         justify-content: start;
@@ -34,19 +34,19 @@ body{
 
     &__logo{
         padding-top: $padding-mobile;
-        width: 150px;
-        height: 40px;
+        width: 9.375rem;
+        height: 2.5rem;
 
         @include mixin.tablet{
-            width: 120px;
-            height: 25px;
-            padding: 0 72px 0 36px;
+            width: 7.5rem;
+            height: 1.563rem;
+            padding: 0 4.5rem 0 2.25rem;
         }
 
         @include mixin.desktop{
-            width: 120px;
-            height: 25px;
-            padding: 0 72px 0 148px;
+            width: 7.5rem;
+            height: 1.563rem;
+            padding: 0 4.5rem 0 9.25rem;
         }
     }
 
@@ -69,18 +69,18 @@ body{
         width:50%;
         text-align: center;
         list-style: none;
-        font-size: 18px;
+        font-size: 1.125rem;
 
         @include mixin.tablet{
             width: 100%;
-            padding-right: 48px;
-            font-size: 14px;
+            padding-right: 3rem;
+            font-size: 0.875rem;
         }
 
         @include mixin.desktop{
             width: 100%;
-            padding-right: 48px;
-            font-size: 14px;
+            padding-right: 3rem;
+            font-size: 0.875rem;
         }
     }
 
@@ -99,15 +99,15 @@ body{
             bottom: -16px; 
             background: white;
             width: 0%;
-            height: 3px;
+            height: 0.188rem;
 
             @include mixin.tablet{
-                bottom: -31px;
+                bottom: -1.938rem;
             }
 
             @include mixin.desktop{
-                bottom: -41px; 
-                height: 4px;
+                bottom: -2.563rem; 
+                height: 0.25rem;
             }
         } 
         
@@ -128,19 +128,19 @@ body{
     display: flex;
     position: relative;
     flex-direction: column;
-    padding-top: 24px;
+    padding-top: 1.5rem;
     padding-left: $padding-mobile;
     padding-right: $padding-mobile;
     margin: 0;
 
     @include mixin.tablet{
-        padding-right: 32px;
-        padding-left: 32px;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 
     @include mixin.desktop{
-        padding-right: 148px;
-        padding-left: 148px;
+        padding-right: 9.25rem;
+        padding-left: 9.25rem;
     }
 }
 
@@ -149,14 +149,14 @@ body{
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 50px;
+        gap: 3.125rem;
     }
 
     @include mixin.desktop{
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 50px;
+        gap: 3.125rem;
     }
 
     &__header{
@@ -170,14 +170,14 @@ body{
 
     &__socials{
         display: flex;
-        gap: 30px;
+        gap: 1.875rem;
         align-items: center;
     } 
 
     &__logo{
-        width: 30px;
-        height: 30px;
-        padding-bottom: 12px;
+        width: 1.875rem;
+        height: 1.875rem;
+        padding-bottom: 0.75rem;
 
         @include mixin.tablet{
             width: auto;
@@ -200,11 +200,11 @@ body{
     position: relative;
 
     @include mixin.tablet{
-        padding-bottom: 80px;
+        padding-bottom: 5rem;
     }
 
     @include mixin.desktop{
-        padding-bottom: 80px;
+        padding-bottom: 5rem;
     }
 
     &__container{
@@ -212,50 +212,50 @@ body{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 60px;
+            gap: 3.75rem;
         }
 
         @include mixin.desktop{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 60px;
+            gap: 3.75rem;
         }
     }
 
     &__block{
         &--indentation{
-            padding-left: 5px;
+            padding-left: 0.313rem;
         }
     }
 
     &__header{
         color: $primary-text-lighbg;
-        font-size: 16px;
-        line-height: 18px;
+        font-size: 1rem;
+        line-height: 1.125rem;
         font-weight: 600;
 
 
         @include mixin.tablet{
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         @include mixin.desktop{
-            font-size: 14px;
+            font-size: 0.875rem;
         }
     }
 
     &__details{
-        font-size: 16px;
-        line-height: 25px;
-        padding-bottom: 10px;
+        font-size: 1rem;
+        line-height: 1.563rem;
+        padding-bottom: 0.625rem;
 
         @include mixin.tablet{
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         @include mixin.desktop{
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
             &--copyright{
@@ -274,27 +274,27 @@ body{
     &__email{
         text-decoration: none;
         color: $primary-text-lighbg;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem;
     }
 
     &__logo{
-        padding-top: 36px;
-        width: 150px;
-        height: 40px;
+        padding-top: 2.25rem;
+        width: 9.375rem;
+        height: 2.5rem;
 
         @include mixin.tablet{
-            width: 120px;
-            height: 25px;
+            width: 7.5rem;
+            height: 1.563rem;
             position:absolute;
-            top: -90px;
+            top: -5.625rem;
             right: 0;
         }
 
         @include mixin.desktop{
-            width: 120px;
-            height: 25px;
+            width: 7.5rem;
+            height: 1.563rem;
             position:absolute;
-            top: -90px;
+            top: -5.625rem;
             right: 0;
         }
     }
