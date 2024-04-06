@@ -299,16 +299,17 @@
     }
 }
 
-.comments{
+.add-comments{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 24px;
+    padding: 0 $padding-mobile;
 
     &__header{
         font-size: $header-font-size;
-        padding: 24px 16px 16px 16px;
+        padding: 24px 16px 16px 0;
         font-weight: 600;
         width: 100%;
         margin: 0;
@@ -318,7 +319,6 @@
         margin-top: 22px;
         justify-content: center;
         align-items: flex-start;
-        padding-left: $padding-mobile;
 
         &--image{
             border-radius: 50%;
@@ -335,6 +335,8 @@
         flex-grow: 1;
 
         &--name{
+            font-family: AvenirNextTLPro;
+            font-size: 14px;
             box-sizing:border-box;
             height: 48px;
             border-radius: 6px;
@@ -357,9 +359,12 @@
         }
 
         &--comment{
+            font-family: AvenirNextTLPro;
+            font-size: 14px;
             height: 120px;
             border-radius: 6px;
             background-color: $alabaster;
+            padding: 12px;
             margin-bottom: 24px;
             border: $mercury solid 1px;
             color: $bandsite-black;
@@ -387,3 +392,61 @@
         }
     }
 }
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    padding: 0 $padding-mobile 16px $padding-mobile;
+    
+
+    &__container{
+        display: flex;
+        gap: 24px;
+
+        &--subcontainer{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__avatar{
+        border-radius: 50%;
+        background-color: $mercury;
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        margin-top: 12px;
+    }
+
+    &__name-timestamp-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__name{
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    &__timestamp{
+        color: $seconday-text-color;
+        margin-bottom: 0;
+    }
+
+    &__text{
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    &__divider{
+        background-color: $mercury;
+        height: 2px;
+        width: 100%;
+        border: none;
+    }
+}
+
+    
+
+
