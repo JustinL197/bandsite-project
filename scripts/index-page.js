@@ -4,55 +4,118 @@ const commentsArray = [
     {name: "Isaac Tadesse", timestamp: "10/20/2023", comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."}
 ];
 
+ // function to modify .createElement to add className.
+ function createElementWithClass(tagName, className){
+    const element = document.createElement(tagName);
+    element.className = className;
+    return element;
+}
+
 function displayComment(comment){
-    const container = document.querySelector('.comments');
+    const commentsSection = document.querySelector('.comments');
 
-    const commentElem = document.createElement('div');
-    commentElem.className = "comments__container";
+    const containerElem = createElementWithClass('div', 'comments__container');
+    const avatarElem = createElementWithClass('div', 'comments__avatar');
+    const subcontainerElem = createElementWithClass('div', 'comments__subcontainer');
+    const nameTimeContainerElem = createElementWithClass('div', 'comments__name-time-container');
+    const nameElem = createElementWithClass('h3', 'comments__name');
+    const timeStampElem = createElementWithClass('p', 'comments__timestamp');
+    const commentContainerElem = createElementWithClass('div', 'comments__comment-container');
+    const commentElem = createElementWithClass('p', 'comments__text');
+    const dividerElem = createElementWithClass('hr', 'comments__divider');
 
-    const avatarElem = document.createElement('div');
-    avatarElem.className = 'comments__avatar';
-
-    const subcontainerElem = document.createElement('div');
-    subcontainerElem.className = 'comments__container--subcontainer';
-
-    const nameTimeElem = document.createElement('div');
-    nameTimeElem.className = 'comments__name-timestamp-container'
-
-    const nameElem = document.createElement('h3');
-    nameElem.className = 'comments__name';
-
-    const timestampElem = document.createElement('p');
-    timestampElem.className = 'comments__timestamp';
-
-    const textElem = document.createElement('p');
-    textElem.className = 'comments__text';
-
+    //assign the appropriate values from the form to the comment elements.
     nameElem.innerText = comment.name;
-    timestampElem.innerText = comment.timestamp;
-    textElem.innerText = comment.comment;
+    timeStampElem.innerText = comment.timestamp;
+    commentElem.innerText = comment.comment;
 
-    //append to the div (commentElem) the elements of the comments.
-    commentElem.appendChild(avatarElem);
-
-    nameTimeElem.appendChild(nameElem);
-    nameTimeElem.appendChild(timestampElem);
-
-    subcontainerElem.appendChild(nameTimeElem);
-    subcontainerElem.appendChild(textElem);
-
-    commentElem.appendChild(subcontainerElem);
-
-    //append to the comments_container from HTML code
-    container.appendChild(commentElem);
-
-    //create a divider
-    const divider = document.createElement('hr');
-    divider.className = 'comments__divider';
-
-    container.appendChild(divider);
+    //append the comment to its container
+    commentContainerElem.appendChild(commentElem);
+    //append the name and date to its container
+    nameTimeContainerElem.append(nameElem, timeStampElem);
+    //append both items to its container 
+    subcontainerElem.append(nameTimeContainerElem, commentContainerElem);
+    //append the subcontainer and avatar to the main container
+    containerElem.append(avatarElem, subcontainerElem);
+    //append comment to the section
+    commentsSection.appendChild(containerElem);
+    
+    //create a divider 
+    commentsSection.appendChild(dividerElem);
 }
 
 commentsArray.forEach(comment => displayComment(comment));
+
+//function to create a comment object from the form
+function createComment(){
     
-    
+    const nameElem = document.getElementById('name');
+    const dateElem = new Date(); 
+    const formatDate = dateElem.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+    const commentElem = document.getElementById('comment');
+      
+    const newComment = {
+        name: nameElem.value,
+        timestamp: formatDate,
+        comment: commentElem.value
+    };
+
+    commentsArray.unshift(newComment);
+
+    nameElem.classList.remove('comments__invalid');
+    commentElem.classList.remove('comments__invalid');
+
+}
+
+//function to clear the comments section
+function clearSection(){
+    const commentSection = document.querySelector('.comments');
+    while (commentSection.firstChild){
+        commentSection.removeChild(commentSection.firstChild);
+    }
+}
+
+//function to rerender comments into the section
+function renderComments(){
+    commentsArray.forEach(comment => displayComment(comment));
+}
+
+//function to reset the form field and submitting
+function resetFormField(){
+    document.querySelector('.add-comments__form').reset();
+}
+
+function checkValidity(){
+    const nameField = document.getElementById('name');
+    const commentField = document.getElementById('comment');
+    let validator = true;
+
+    if (!nameField.value){
+        nameField.classList.add('comments__invalid');
+        validator = false;
+    }
+
+    if (!commentField.value){
+        commentField.classList.add('comments__invalid');
+        validator = false;
+    }
+
+    return validator;
+}
+
+//on submit, run a function that creates and adds comment to the section
+const submitButton = document.querySelector('.add-comments__form');
+
+submitButton.addEventListener('submit', (event) => {
+   event.preventDefault();
+   if (!checkValidity()){
+    return false;
+   }
+   
+   else{
+    createComment();
+    clearSection();
+    renderComments();
+    resetFormField();
+   }
+   });

@@ -38,7 +38,7 @@
                 </p>
             
                 <p class="about-section__paragraph">
-                    From there, the band has soared, gaining international recognition and ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band's original and organic attitude, solidifying their place as one of the hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to their candid and authentic performances on stage. The Bees Knees are currently recording their second studio album, looking to be released in early 2024.
+                    From there, the band has soared, gaining international recognition and ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s original and organic attitude, solidifying their place as one of the hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to their candid and authentic performances on stage. The Bees Knees are currently recording their second studio album, looking to be released in early 2024.
                 </p>
             </div>
 
@@ -62,19 +62,22 @@
 
         <section class="add-comments">
             <h2 class="add-comments__header">Join The Conversation</h2>
-            <div class="add-comments__avatar">
-                <img src= "assets/images/Mohan-muruge.jpg" alt = avatar class="add-comments__avatar--image">
+            <div class="add-comments__subcontainer">
+                <div class="add-comments__avatar">
+                    <img src= "assets/images/Mohan-muruge.jpg" alt = avatar class="add-comments__avatar--image">
+                </div>
+                <form class="add-comments__form">
+                    <label for="name" class="add-comments__form--label">NAME</label>
+                    <input type="text" id="name" name="name" class="add-comments__form--name">
+    
+                    <label for="comment" class="add-comments__form--label">COMMENT</label>
+                    <textarea id="comment" name="comment" class="add-comments__form--comment"></textarea>
+    
+                    <button type="submit" class="add-comments__button">COMMENT</button>
+                </form>
             </div>
-            <form class="add-comments__form">
-                <label for="name" class="add-comments__form--label">NAME</label>
-                <input type="text" id="name" name="name" class="add-comments__form--name">
-
-                <label for="comment" class="add-comments__form--label">COMMENT</label>
-                <textarea id="comment" name="comment" class="add-comments__form--comment"></textarea>
-
-                <button type="submit" class="add-comments__button">COMMENT</button>
-            </form>
-       
+            
+            <hr class="comments__divider">
         </section>
         
         <section class="comments">

@@ -266,6 +266,7 @@
     }
 
     &__container{
+
         @include mixin.tablet{
             display: flex;
             flex-wrap: wrap;
@@ -304,16 +305,45 @@
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 24px;
     padding: 0 $padding-mobile;
+
+    @include mixin.tablet{
+        padding: 24px $padding-tablet;
+        justify-content: center;
+    }
+
+    @include mixin.desktop{
+        padding: 48px $padding-desktop;
+        justify-content: center;
+        padding-bottom: 0;
+    }
 
     &__header{
         font-size: $header-font-size;
         padding: 24px 16px 16px 0;
         font-weight: 600;
-        width: 100%;
         margin: 0;
+        width: 100%;
     }
+
+    &__subcontainer{
+        display: flex;
+        gap: 24px;
+        flex-grow: 1;
+
+        @include mixin.tablet{
+            flex-grow: 0;
+            width: 85%;
+            gap: 10px;
+        }
+
+        @include mixin.desktop{
+            flex-grow: 0;
+            width: 51%;
+            gap: 15px;
+        }
+    }
+
     &__avatar{
         display: flex;
         margin-top: 22px;
@@ -390,6 +420,22 @@
             background-color: $bandSite-DarkBlack;
             cursor: pointer;
         }
+
+        @include mixin.tablet{
+            width: 180px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: 400;
+            align-self: flex-end;
+        }
+
+        @include mixin.desktop{
+            width: 180px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: 400;
+            align-self: flex-end;
+        }
     }
 }
 
@@ -398,15 +444,34 @@
     flex-direction: column;
     padding: 0 $padding-mobile 16px $padding-mobile;
     
+    @include mixin.tablet{
+        padding: 0 $padding-tablet 16px $padding-tablet;
+        align-items: center;
+    }
+
+    @include mixin.desktop{
+        padding: 0 $padding-desktop 16px $padding-desktop;
+        align-items: center;
+    }
 
     &__container{
         display: flex;
         gap: 24px;
 
-        &--subcontainer{
-            display: flex;
-            flex-direction: column;
+        @include mixin.tablet{
+            width: 85%;
         }
+
+        @include mixin.desktop{
+            width: 51%;
+            ;
+        }
+    }
+
+    &__subcontainer{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
 
     &__avatar{
@@ -418,20 +483,23 @@
         margin-top: 12px;
     }
 
-    &__name-timestamp-container{
+    &__name-time-container{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
     }
 
     &__name{
         font-weight: 600;
         margin-bottom: 0;
+        font-size: 18px;
     }
 
     &__timestamp{
         color: $seconday-text-color;
         margin-bottom: 0;
+        font-size: 18px;
     }
 
     &__text{
@@ -444,6 +512,18 @@
         height: 2px;
         width: 100%;
         border: none;
+
+        @include mixin.tablet{
+            width: 85%;
+        }
+
+        @include mixin.desktop{
+            width: 51%;
+        }
+    }
+
+    &__invalid{
+        border: 1px solid #d22d2d;
     }
 }
 
