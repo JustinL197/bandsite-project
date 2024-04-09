@@ -1,0 +1,155 @@
+@use './partials/mixins' as mixin;
+@import './partials/variables';
+@import './partials/global';
+
+.hero{
+    background-image: url(../assets/Images/hero-shows.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    aspect-ratio: 10/6;
+    width: 100%;
+    gap: 30px;
+
+    @include mixin.tablet{
+        aspect-ratio: 9/5;
+    }
+
+    @include mixin.desktop{
+        aspect-ratio: 4/2;
+    }
+
+    // 50% opacity for hero image
+    &__overlay {
+        content:'';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0; 
+        bottom: 0;
+        background: rgba(50, 50, 50, 0.5);
+        z-index: 1;
+    }
+
+    &__subtext{
+        padding-top: 50px;
+        padding-left: 22px;
+        margin: 0;
+        color: $primary-text-lighbg;
+        line-height: $font-line-height;
+        font-size: 1.5rem;
+        font-weight: 400;
+        z-index: 2;
+    }
+
+    &__title {
+        padding-left: 22px;
+        margin:0;
+        color: $primary-text-lighbg;
+        font-size: 2.5rem;
+        line-height: 60px;
+        font-weight: 600;
+        z-index: 2;
+
+        @include mixin.tablet{ 
+            padding-left: $padding-tablet;
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+            font-weight: 600;
+        }
+
+        @include mixin.desktop{
+            padding-left: $padding-desktop;
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+            font-weight: 600;
+        }
+    }
+
+    &__musicPlayer{
+        width: 90%;
+        align-self: center;
+        padding-bottom: 20px;
+        z-index: 2;
+    }
+}
+
+.shows{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    &__header{
+        padding-top: 2.25rem;
+        padding-left: 22px;
+        padding-bottom: $padding-after-content-mobile;
+        margin:0;
+        font-size: $header-font-size;
+        line-height: $font-line-height;
+        font-weight: 600;
+    }
+
+    &__container{
+        padding-left: 22px;
+    }
+    
+    &__divider{
+        background-color: $mercury;
+        height: 2px;
+        width: 100%;
+        border: none;
+    }
+
+    &__heading{
+        font-size: 14px;
+        font-weight: 600;
+        color: $seconday-text-color;
+        margin-bottom: 10px;
+    }
+
+    &__info{
+        margin: 0 0 16px 0;
+
+        &--bold{
+            font-weight: 600;
+        }
+    }
+
+    &__button{
+        height: 60px;
+        border: none;
+        border-radius: 6px;
+        font-size: 25px;
+        font-weight: 600;
+        color: white;
+        background-color: $bandsite-black;
+        margin-top: 14px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        width: 90%;
+        align-self: center;
+
+        &:hover{
+            background-color: $bandSite-DarkBlack;
+            cursor: pointer;
+        }
+
+        @include mixin.tablet{
+            width: 180px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: 400;
+            align-self: flex-end;
+        }
+
+        @include mixin.desktop{
+            width: 180px;
+            height: 45px;
+            font-size: 18px;
+            font-weight: 400;
+            align-self: flex-end;
+        }
+    }
+}

@@ -90,12 +90,12 @@ function checkValidity(){
     const commentField = document.getElementById('comment');
     let validator = true;
 
-    if (!nameField.value){
+    if (!nameField.value.trim()){
         nameField.classList.add('comments__invalid');
         validator = false;
     }
 
-    if (!commentField.value){
+    if (!commentField.value.trim()){
         commentField.classList.add('comments__invalid');
         validator = false;
     }
@@ -111,7 +111,7 @@ submitButton.addEventListener('submit', (event) => {
    if (!checkValidity()){
     return false;
    }
-   
+
    else{
     createComment();
     clearSection();
