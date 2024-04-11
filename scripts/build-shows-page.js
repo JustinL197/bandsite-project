@@ -15,53 +15,94 @@ function createElementWithClass(tagName, className){
 
 
 function displayShow(show){
-    const mainContainer = document.querySelector('.shows');
+    const mainContainer = document.querySelector('.shows__main-container');
 
-    const containerElem = createElementWithClass('div', 'shows__container');
-
+    const showContainerElem = createElementWithClass('div', 'shows__container');
+   
+    const dateContainerElem = createElementWithClass('div', 'shows__subcontainer')
     const dateHeading = createElementWithClass('h3', 'shows__heading');
     const dateInfo = createElementWithClass('p', 'shows__info');
+
+    //add a modifier for the bolded dates.
     dateInfo.classList.add('shows__info--bold');
 
+    const venueContainerElem = createElementWithClass('div', 'shows__subcontainer');
     const venueHeading = createElementWithClass('h3', 'shows__heading');
     const venueInfo = createElementWithClass('p', 'shows__info');
 
+    const locationContainerElem = createElementWithClass('div', 'shows__subcontainer')
+    locationContainerElem.classList.add('shows__subcontainer--location');
     const locationHeading = createElementWithClass('h3', 'shows__heading');
     const locationInfo = createElementWithClass('p', 'shows__info');
 
     const dividerElem = createElementWithClass('hr', 'shows__divider');
 
-
+    //assign values for each heading
     dateHeading.innerText = 'DATE';
-    containerElem.appendChild(dateHeading);
-
-    dateInfo.innerText = show.date;
-    containerElem.appendChild(dateInfo);
-
     venueHeading.innerText = 'VENUE';
-    containerElem.appendChild(venueHeading);
-
-    venueInfo.innerText = show.venue;
-    containerElem.appendChild(venueInfo);
-    
     locationHeading.innerText = 'LOCATION';
-    containerElem.appendChild(locationHeading);
 
+    //assign values from each show object
+    dateInfo.innerText = show.date;
+    venueInfo.innerText = show.venue;
     locationInfo.innerText = show.location;
-    containerElem.appendChild(locationInfo);
 
-    mainContainer.appendChild(containerElem);
+    //append elements to respective container
+    dateContainerElem.appendChild(dateHeading);
+    dateContainerElem.appendChild(dateInfo);
+
+    venueContainerElem.appendChild(venueHeading);
+    venueContainerElem.appendChild(venueInfo);
     
+    locationContainerElem.appendChild(locationHeading);
+    locationContainerElem.appendChild(locationInfo);
+
+    //append containers to parent container
+    showContainerElem.appendChild(dateContainerElem);
+    showContainerElem.appendChild(venueContainerElem);
+    showContainerElem.appendChild(locationContainerElem);
 
     //append the button
+    const buttonContainerElem = createElementWithClass('div', 'shows__button-container')
     const buttonElem = createElementWithClass('button', 'shows__button');
+
     buttonElem.type = 'button';
     buttonElem.innerText = 'BUY TICKETS';
 
-    mainContainer.appendChild(buttonElem);
-    
-    mainContainer.appendChild(dividerElem);
+    buttonContainerElem.appendChild(buttonElem);
+    showContainerElem.appendChild(buttonContainerElem);
 
+    mainContainer.appendChild(showContainerElem);
+    mainContainer.appendChild(dividerElem);
+    
 }   
 
+function createHeaderContainer(){
+
+    const mainContainer = document.querySelector('.shows__main-container');
+    const headingContainerElem = createElementWithClass('div', 'shows__heading-container');
+
+    const dateElem = createElementWithClass('h3', 'shows__header--mixin');
+    dateElem.innerText = 'DATE';
+
+    const venueElem = createElementWithClass('h3', 'shows__header--mixin');
+    venueElem.innerText = 'VENUE';
+
+    const locationElem = createElementWithClass('h3', 'shows__header--mixin');
+    locationElem.innerText = 'LOCATION';
+
+    const placeHolderElem = createElementWithClass('h3', 'shows__header--mixin');
+    placeHolderElem.classList.add('shows__header--placeholder');
+    placeHolderElem.innerText = 'PLACEHOLDER';
+
+    headingContainerElem.appendChild(dateElem);
+    headingContainerElem.appendChild(venueElem);
+    headingContainerElem.appendChild(locationElem);
+    headingContainerElem.appendChild(placeHolderElem);
+
+    mainContainer.appendChild(headingContainerElem);
+    
+}
+
+createHeaderContainer();
 showsArray.forEach(show => displayShow(show));

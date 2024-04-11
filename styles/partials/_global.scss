@@ -134,8 +134,8 @@ body{
     margin: 0;
 
     @include mixin.tablet{
-        padding-right: 2rem;
-        padding-left: 2rem;
+        padding-right: $padding-tablet;
+        padding-left: $padding-tablet;
     }
 
     @include mixin.desktop{
