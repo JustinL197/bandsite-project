@@ -106,3 +106,22 @@ function createHeaderContainer(){
 
 createHeaderContainer();
 showsArray.forEach(show => displayShow(show));
+
+
+document.addEventListener('DOMContentLoaded', () => { 
+
+    const divs = document.querySelectorAll('.shows__container');
+
+    function selectDiv(event){
+        event.stopPropagation();
+        divs.forEach(div => {
+            div.classList.remove('shows__container--selected');
+        });
+
+        event.currentTarget.classList.add('shows__container--selected');
+    }
+
+    divs.forEach(div => {
+        div.addEventListener('click', selectDiv);
+    });
+});

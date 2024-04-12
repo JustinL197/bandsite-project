@@ -492,6 +492,9 @@ body {
 .shows__header--placeholder {
   visibility: hidden;
 }
+.shows__container {
+  padding: 24px 18px 24px 0;
+}
 @media (min-width: 768px) and (max-width: 1279px) {
   .shows__container {
     box-sizing: border-box;
@@ -511,6 +514,17 @@ body {
     gap: 30px;
     width: 100%;
   }
+}
+.shows__container:hover {
+  background-color: #FAFAFA;
+  box-shadow: 0 0 0 5px #FAFAFA;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.shows__container--selected, .shows__container--selected:hover {
+  background-color: #E1E1E1;
+  box-shadow: 0 0 0 10px #E1E1E1;
+  border-radius: 5px;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .shows__subcontainer {
