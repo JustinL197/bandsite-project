@@ -7,13 +7,14 @@ const showsArray = [
     { date: "Wed Dec 18 2024", venue: "Press Club", location: "San Francisco, CA" }
 ];
 
+// function to modify .createElement to add className.
 function createElementWithClass(tagName, className){
     const element = document.createElement(tagName);
     element.classList = className;
     return element
 }
 
-
+//function to dynamically display shows on the page.
 function displayShow(show){
     const mainContainer = document.querySelector('.shows__main-container');
 
@@ -77,22 +78,23 @@ function displayShow(show){
     
 }   
 
+//function to display container for the headers in the tablet/desktop viewport
 function createHeaderContainer(){
 
     const mainContainer = document.querySelector('.shows__main-container');
     const headingContainerElem = createElementWithClass('div', 'shows__heading-container');
 
-    const dateElem = createElementWithClass('h3', 'shows__header--mixin');
+    const dateElem = createElementWithClass('h3', 'shows__heading-container--dateTimeLocation');
     dateElem.innerText = 'DATE';
 
-    const venueElem = createElementWithClass('h3', 'shows__header--mixin');
+    const venueElem = createElementWithClass('h3', 'shows__heading-container--dateTimeLocation');
     venueElem.innerText = 'VENUE';
 
-    const locationElem = createElementWithClass('h3', 'shows__header--mixin');
+    const locationElem = createElementWithClass('h3', 'shows__heading-container--dateTimeLocation');
     locationElem.innerText = 'LOCATION';
 
-    const placeHolderElem = createElementWithClass('h3', 'shows__header--mixin');
-    placeHolderElem.classList.add('shows__header--placeholder');
+    const placeHolderElem = createElementWithClass('h3', 'shows__heading-container--dateTimeLocation');
+    placeHolderElem.classList.add('shows__heading-container--placeholder');
     placeHolderElem.innerText = 'PLACEHOLDER';
 
     headingContainerElem.appendChild(dateElem);
@@ -104,16 +106,18 @@ function createHeaderContainer(){
     
 }
 
+//invoke the function and iterate through the shows array to display it on the page
 createHeaderContainer();
 showsArray.forEach(show => displayShow(show));
 
+//add an event-listener to the loaded page, shows__container class to add
+//hover and active states.
 
 document.addEventListener('DOMContentLoaded', () => { 
 
     const divs = document.querySelectorAll('.shows__container');
 
     function selectDiv(event){
-        event.stopPropagation();
         divs.forEach(div => {
             div.classList.remove('shows__container--selected');
         });

@@ -2,6 +2,7 @@
 @import './partials/variables';
 @import './partials/global';
 
+//styling for the hero section
 .hero{
     background-image: url(../assets/Images/hero-shows.jpg);
     background-size: cover;
@@ -10,12 +11,12 @@
     flex-direction: column;
     position: relative;
     aspect-ratio: 10/6;
-    gap: 30px;
-    padding: 50px 22px;
+    gap: 1.875rem;
+    padding: 3.125rem 1.375rem;
 
     @include mixin.tablet{
         aspect-ratio: 9/5;
-        padding: 30px $padding-tablet 30px $padding-tablet;
+        padding: 1.875rem $padding-tablet 1.875rem $padding-tablet;
         justify-content: center;
     }
 
@@ -49,7 +50,7 @@
         z-index: 2;
 
         @include mixin.desktop{
-            font-size: 20px;
+            font-size: 1.25rem;
             align-self: flex-start;
         }
     }
@@ -57,7 +58,7 @@
     &__container{
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 1.875rem;
         z-index: 2;
 
         @include mixin.desktop{
@@ -65,7 +66,7 @@
             width: 100%;
             justify-content: space-between;
             align-items: center;
-            gap: 100px;
+            gap: 6.25rem;
         }
     }
 
@@ -73,7 +74,7 @@
         margin:0;
         color: $primary-text-lighbg;
         font-size: 2.5rem;
-        line-height: 60px;
+        line-height: 3.75rem;
         font-weight: 600;
         width: 350px;
         z-index: 2;
@@ -96,7 +97,7 @@
     &__musicPlayer{
         width: 100%;
         align-self: center;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem;
         z-index: 2;
 
         @include mixin.tablet{
@@ -110,12 +111,11 @@
     }
 }
 
+//styling for the shows section
 .shows{
     display: flex;
     flex-direction: column;
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-bottom: 20px;
+    padding: 0 1.375rem 1.25rem 1.375rem;
   
     @include mixin.tablet{
         padding-left: $padding-tablet;
@@ -126,9 +126,17 @@
         padding-left: $padding-desktop;
         padding-right: $padding-desktop;
         flex-direction: row;
-        gap: 190px;
+        gap: 11.875rem;
     }
 
+    &__header{
+        padding-top: 2.25rem;
+        padding-bottom: $padding-after-content-mobile;
+        margin:0;
+        font-size: $header-font-size;
+        line-height: $font-line-height;
+        font-weight: 600;
+    }
 
     &__main-container{
         @include mixin.desktop{
@@ -144,62 +152,71 @@
         display: none;
 
         @include mixin.tablet{
-            box-sizing: border-box;
             display: flex;
-            gap: 30px;
+            gap: 1.875rem;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
 
         @include mixin.desktop{
-            box-sizing: border-box;
             display: flex;
-            gap: 30px;
+            gap: 1.875rem;
             justify-content: center;
             align-items: center;
             width: 100%;
             
         }
-    }
 
-    &__header{
-        padding-top: 2.25rem;
-        padding-bottom: $padding-after-content-mobile;
-        margin:0;
-        font-size: $header-font-size;
-        line-height: $font-line-height;
-        font-weight: 600;
-
-        &--mixin{
-            font-size: 14px;
+        &--dateTimeLocation{
+            font-size: 0.875rem;
             color: $seconday-text-color;
             font-weight: 600;
             width: 33%;
+
+            @include mixin.tablet{
+                font-size: 0.75rem;
+            }
+
+            @include mixin.desktop{
+                font-size: 0.75rem;
+            }
         }
+        
         &--placeholder{
             visibility: hidden;
         }
     }
 
-    &__container{
-        padding: 24px 18px 24px 0;
+    &__heading{
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: $seconday-text-color;
+        margin-bottom: 0.625rem;
 
         @include mixin.tablet{
-            box-sizing: border-box;
+            display: none;
+        }
+
+        @include mixin.desktop{
+            display: none;
+        }
+    }
+
+    &__container{
+        @include mixin.tablet{
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 1.875rem;
             width: 100%;
         }
 
         @include mixin.desktop{
-            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 1.875rem;
             width: 100%;
         }
 
@@ -228,42 +245,22 @@
             display: flex;
             align-items: center;
             width: 33%;
-            padding-top: 24px;
-            padding-bottom: 24px;
-        }
-    }
-    
-    &__divider{
-        background-color: $mercury;
-        height: 2px;
-        border: none;
-        width: 100%;
-    }
-
-    &__heading{
-        font-size: 14px;
-        font-weight: 600;
-        color: $seconday-text-color;
-        margin-bottom: 10px;
-
-        @include mixin.tablet{
-            display: none;
-        }
-
-        @include mixin.desktop{
-            display: none;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
     }
 
     &__info{
-        margin: 0 0 16px 0;
+        margin: 0 0 1rem 0;
 
         @include mixin.tablet{
+            font-size: 0.875rem;
             margin: 0;
         }
 
         @include mixin.desktop{
             margin: 0;
+            font-size: 0.875rem;
         }
 
         &--bold{
@@ -288,13 +285,13 @@
         height: 60px;
         border: none;
         border-radius: 6px;
-        font-size: 25px;
+        font-size: 1.563rem;
         font-weight: 400;
         color: white;
         background-color: $bandsite-black;
-        margin-top: 14px;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
+        margin-top: 0.875rem;
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.0625rem;
         width: 100%;
         
 
@@ -306,7 +303,7 @@
         @include mixin.tablet{
             max-width: 180px;
             height: 45px;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 400;
             align-self: auto;
             margin: 0;
@@ -314,9 +311,18 @@
 
         @include mixin.desktop{
             height: 45px;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 400;
             margin: 0;
+            max-width: 180px;
         }
+    }
+
+       
+    &__divider{
+        background-color: $mercury;
+        height: 2px;
+        border: none;
+        width: 100%;
     }
 }

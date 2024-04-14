@@ -26,7 +26,7 @@ body{
 
     @include mixin.desktop{
         padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
         flex-direction: row;
         align-items: center;
         justify-content: start;
@@ -96,7 +96,7 @@ body{
             position: absolute;
             left: 0;
             right:0; 
-            bottom: -16px; 
+            bottom: -1rem; 
             background: white;
             width: 0%;
             height: 0.188rem;
@@ -106,7 +106,7 @@ body{
             }
 
             @include mixin.desktop{
-                bottom: -2.563rem; 
+                bottom: -2.063rem; 
                 height: 0.25rem;
             }
         } 
@@ -285,7 +285,7 @@ body{
         @include mixin.tablet{
             width: 7.5rem;
             height: 1.563rem;
-            position:absolute;
+            position: absolute;
             top: -5.625rem;
             right: 0;
         }
@@ -293,7 +293,7 @@ body{
         @include mixin.desktop{
             width: 7.5rem;
             height: 1.563rem;
-            position:absolute;
+            position: absolute;
             top: -5.625rem;
             right: 0;
         }
