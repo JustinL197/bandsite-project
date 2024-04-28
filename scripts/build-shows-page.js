@@ -1,11 +1,6 @@
-const showsArray = [
-    { date: "Mon Sept 09 2024", venue: "Ronald Lane", location: "San Francisco, CA" },
-    { date: "Tue Sept 17 2024", venue: "Pier 3 East", location: "San Francisco, CA" },
-    { date: "Sat Oct 12 2024", venue: "View Lounge", location: "San Francisco, CA" },
-    { date: "Sat Nov 16 2024", venue: "Hyatt Agency", location: "San Francisco, CA" },
-    { date: "Fri Nov 29 2024", venue: "Moscow Center", location: "San Francisco, CA" },
-    { date: "Wed Dec 18 2024", venue: "Press Club", location: "San Francisco, CA" }
-];
+import { BandSiteApi, apiKey } from "./band-site-api.js";
+
+const bandSiteApi = new BandSiteApi(apiKey);
 
 // function to modify .createElement to add className.
 function createElementWithClass(tagName, className){
@@ -45,7 +40,7 @@ function displayShow(show){
 
     //assign values from each show object
     dateInfo.innerText = show.date;
-    venueInfo.innerText = show.venue;
+    venueInfo.innerText = show.place;
     locationInfo.innerText = show.location;
 
     //append elements to respective container
@@ -108,7 +103,7 @@ function createHeaderContainer(){
 
 //invoke the function and iterate through the shows array to display it on the page
 createHeaderContainer();
-showsArray.forEach(show => displayShow(show));
+retrieveAndDisplayShows();
 
 //add an event-listener to the loaded page, shows__container class to add
 //hover and active states.
@@ -129,3 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
         div.addEventListener('click', selectDiv);
     });
 });
+
+
+async function retrieveAndDisplayShows(){
+    try{
+        const shows = await bandSiteApi.getShows();
+        shows.forEach(show => displayShow(show));
+    }catch(error){
+        console.error(error.message);
+    }
+}
