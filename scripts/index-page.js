@@ -1,6 +1,9 @@
 import { BandSiteApi, apiKey } from "./band-site-api.js";
 
 const bandSiteApi = new BandSiteApi(apiKey);
+const commentsSection = document.querySelector('.comments');
+const nameInput = document.getElementById('name');
+const commentInput = document.getElementById('comment');
 
  // function to modify .createElement to add className.
  function createElementWithClass(tagName, className){
@@ -9,9 +12,13 @@ const bandSiteApi = new BandSiteApi(apiKey);
     return element;
 }
 
+function formatDate(timestamp){
+    const date = new Date(timestamp);
+    return `${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')}/${date.getFullYear()}`;
+}
+
 //function to dynamically display comments
 function displayComment(comment){
-    const commentsSection = document.querySelector('.comments');
 
     const containerElem = createElementWithClass('div', 'comments__container');
     const avatarElem = createElementWithClass('div', 'comments__avatar');
@@ -25,7 +32,7 @@ function displayComment(comment){
 
     //assign the appropriate values from the form to the comment elements.
     nameElem.innerText = comment.name;
-    timeStampElem.innerText = comment.timestamp;
+    timeStampElem.innerText = formatDate(comment.timestamp);
     commentElem.innerText = comment.comment;
 
     //append the comment to its container
@@ -46,28 +53,17 @@ function displayComment(comment){
 //function to create a comment object from the form
 function createCommentObject(){
     
-    const nameElem = document.getElementById('name');
-    const dateElem = new Date(); 
-    // const formatDate = dateElem.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
-    const commentElem = document.getElementById('comment');
-      
     const newComment = {
-        name: nameElem.value,
-        // timestamp: formatDate,
-        comment: commentElem.value
+        name: nameInput.value,
+        comment: commentInput.value
     };
-
-    nameElem.classList.remove('comments__invalid');
-    commentElem.classList.remove('comments__invalid');
-
     return newComment;
 }
 
 //function to clear the comments section
 function clearSection(){
-    const commentSection = document.querySelector('.comments');
-    while (commentSection.firstChild){
-        commentSection.removeChild(commentSection.firstChild);
+    while (commentsSection.firstChild){
+        commentsSection.removeChild(commentsSection.firstChild);
     }
 }
 
@@ -77,18 +73,20 @@ function resetFormField(){
 }
 
 function checkValidity(){
-    const nameField = document.getElementById('name');
-    const commentField = document.getElementById('comment');
     let validator = true;
 
-    if (!nameField.value.trim()){
-        nameField.classList.add('comments__invalid');
+    if (!nameInput.value.trim()){
+        nameInput.classList.add('comments__invalid');
         validator = false;
+    } else{
+        nameInput.classList.remove('comments__invalid');
     }
 
-    if (!commentField.value.trim()){
-        commentField.classList.add('comments__invalid');
+    if (!commentInput.value.trim()){
+        commentInput.classList.add('comments__invalid');
         validator = false;
+    } else{
+        commentInput.classList.remove('comments__invalid');
     }
 
     return validator;
@@ -101,7 +99,7 @@ async function retrieveAndDisplayComments(){
        clearSection();
        comments.forEach(comment => displayComment(comment));
     } catch (error){
-        console.log('Failed to load comments:', error);
+        console.error('Failed to load comments:', error);
     }
 }
 
@@ -118,12 +116,12 @@ async function handleFormSubmit(event){
         resetFormField();
 
     } catch(error){
-        console.log('Failed to post comment:', error);
+        console.error('Failed to post comment:', error);
     }
 }
 
-retrieveAndDisplayComments();
-
-//on submit, run a function that creates and adds comment to the section
-const submitButton = document.querySelector('.add-comments__form');
-submitButton.addEventListener('submit', handleFormSubmit);
+//wait for DOM to be ready before running retrieveAndDIsplayComments().
+document.addEventListener('DOMContentLoaded', () => {
+    retrieveAndDisplayComments();
+    document.querySelector('.add-comments__form').addEventListener('submit', handleFormSubmit);
+});

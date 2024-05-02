@@ -672,7 +672,7 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
-.add-comments__avatar--image {
+.add-comments__avatar-image {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -686,7 +686,7 @@ body {
   flex-direction: column;
   flex-grow: 1;
 }
-.add-comments__form--name {
+.add-comments__form-name {
   font-family: "AvenirNextTLPro", sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -698,16 +698,16 @@ body {
   border: #E1E1E1 solid 1px;
   color: #323232;
 }
-.add-comments__form--name:focus {
+.add-comments__form-name:focus {
   outline: solid #000000 1px;
 }
-.add-comments__form--label {
+.add-comments__form-label {
   font-size: 0.875rem;
   padding-bottom: 0.375rem;
   color: #AFAFAF;
   font-weight: 600;
 }
-.add-comments__form--comment {
+.add-comments__form-comment {
   font-family: "AvenirNextTLPro", sans-serif;
   font-size: 0.875rem;
   height: 120px;
@@ -718,13 +718,13 @@ body {
   border: #E1E1E1 solid 1px;
   color: #323232;
 }
-.add-comments__form--comment:focus {
+.add-comments__form-comment:focus {
   outline: solid #000000 1px;
 }
-.add-comments__form--comment::-moz-placeholder {
+.add-comments__form-comment::-moz-placeholder {
   text-align: start;
 }
-.add-comments__form--comment::placeholder {
+.add-comments__form-comment::placeholder {
   text-align: start;
 }
 .add-comments__button {

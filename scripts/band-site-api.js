@@ -15,8 +15,7 @@ export class BandSiteApi{
         }
         
         catch(error){
-            console.log('There is an error posting comment:', error.message);
-            //throw error --> ask question regarding this.
+            console.error('There is an error posting comment:', error.message);
         }
     }
 
@@ -28,8 +27,7 @@ export class BandSiteApi{
         }
 
         catch(error){
-            console.log('There is an error fetching comments:', error.message);
-            //throw error --> ask question regarding this.
+            console.error('There is an error fetching comments:', error.message);
         }
     }
 
@@ -40,8 +38,7 @@ export class BandSiteApi{
         }
 
         catch(error){
-            console.log('There is an error fetching show-dates', error.message);
-            //throw error --> ask quetsion regarding this
+            console.error('There is an error fetching show-dates', error.message);
         }
     }
 }

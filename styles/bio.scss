@@ -355,7 +355,7 @@
         justify-content: center;
         align-items: flex-start;
 
-        &--image{
+        &-image{
             border-radius: 50%;
             object-fit: cover;
             object-position: 10% center;
@@ -369,7 +369,7 @@
         flex-direction: column;
         flex-grow: 1;
 
-        &--name{
+        &-name{
             font-family: 'AvenirNextTLPro', sans-serif;
             font-size: 0.875rem;
             box-sizing:border-box;
@@ -386,14 +386,14 @@
             }
         }
 
-        &--label{
+        &-label{
             font-size: 0.875rem;
             padding-bottom: 0.375rem;
             color: $seconday-text-color;
             font-weight: 600;
         }
 
-        &--comment{
+        &-comment{
             font-family: 'AvenirNextTLPro', sans-serif;
             font-size: 0.875rem;
             height: 120px;
