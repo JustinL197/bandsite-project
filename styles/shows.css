@@ -45,20 +45,20 @@ body {
 }
 .main-nav__logo {
   padding-top: 1rem;
-  width: 9.375rem;
-  height: 2.5rem;
+  width: 150px;
+  height: 40px;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .main-nav__logo {
-    width: 7.5rem;
-    height: 1.563rem;
+    width: 120px;
+    height: 25px;
     padding: 0 4.5rem 0 2.25rem;
   }
 }
 @media (min-width: 1280px) {
   .main-nav__logo {
-    width: 7.5rem;
-    height: 1.563rem;
+    width: 120px;
+    height: 25px;
     padding: 0 4.5rem 0 9.25rem;
   }
 }
@@ -112,7 +112,7 @@ body {
   bottom: -1rem;
   background: white;
   width: 0%;
-  height: 0.188rem;
+  height: 3px;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .main-nav__link::after {
@@ -186,8 +186,8 @@ body {
   align-items: center;
 }
 .subcontainer__logo {
-  width: 1.875rem;
-  height: 1.875rem;
+  width: 30px;
+  height: 30px;
   padding-bottom: 0.75rem;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -290,13 +290,13 @@ body {
 }
 .contact-info__logo {
   padding-top: 2.25rem;
-  width: 9.375rem;
-  height: 2.5rem;
+  width: 150px;
+  height: 40px;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .contact-info__logo {
-    width: 7.5rem;
-    height: 1.563rem;
+    width: 120px;
+    height: 25px;
     position: absolute;
     top: -5.625rem;
     right: 0;
@@ -304,8 +304,8 @@ body {
 }
 @media (min-width: 1280px) {
   .contact-info__logo {
-    width: 7.5rem;
-    height: 1.563rem;
+    width: 120px;
+    height: 25px;
     position: absolute;
     top: -5.625rem;
     right: 0;
@@ -313,15 +313,25 @@ body {
 }
 
 .hero {
-  background-image: url(../assets/Images/hero-shows.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
   position: relative;
+  background-image: url(../assets/Images/hero-shows.jpg);
+  flex-direction: column;
   aspect-ratio: 10/6;
   gap: 1.875rem;
   padding: 3.125rem 1.375rem;
+}
+.hero__overlay {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(50, 50, 50, 0.5);
+  z-index: 1;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .hero {
@@ -339,16 +349,6 @@ body {
     align-items: center;
     gap: 0;
   }
-}
-.hero__overlay {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(50, 50, 50, 0.5);
-  z-index: 1;
 }
 .hero__subtext {
   margin: 0;

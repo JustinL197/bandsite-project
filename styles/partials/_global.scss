@@ -34,18 +34,18 @@ body{
 
     &__logo{
         padding-top: $padding-mobile;
-        width: 9.375rem;
-        height: 2.5rem;
+        width: 150px;
+        height: 40px;
 
         @include mixin.tablet{
-            width: 7.5rem;
-            height: 1.563rem;
+            width: 120px;
+            height: 25px;
             padding: 0 4.5rem 0 2.25rem;
         }
 
         @include mixin.desktop{
-            width: 7.5rem;
-            height: 1.563rem;
+            width: 120px;
+            height: 25px;
             padding: 0 4.5rem 0 9.25rem;
         }
     }
@@ -99,7 +99,7 @@ body{
             bottom: -1rem; 
             background: white;
             width: 0%;
-            height: 0.188rem;
+            height: 3px;
 
             @include mixin.tablet{
                 bottom: -1.938rem;
@@ -121,6 +121,26 @@ body{
         }
     }
 }
+
+
+@mixin hero-base{
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    position: relative;
+
+    &__overlay {
+        content:'';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0; 
+        bottom: 0;
+        background: rgba(50, 50, 50, 0.5);
+        z-index: 1;
+    }
+}
+
 
 // Styling for the footer section
 .footer{
@@ -175,8 +195,8 @@ body{
     } 
 
     &__logo{
-        width: 1.875rem;
-        height: 1.875rem;
+        width: 30px;
+        height: 30px;
         padding-bottom: 0.75rem;
 
         @include mixin.tablet{
@@ -279,20 +299,20 @@ body{
 
     &__logo{
         padding-top: 2.25rem;
-        width: 9.375rem;
-        height: 2.5rem;
+        width: 150px;
+        height: 40px;
 
         @include mixin.tablet{
-            width: 7.5rem;
-            height: 1.563rem;
+            width: 120px;
+            height: 25px;
             position: absolute;
             top: -5.625rem;
             right: 0;
         }
 
         @include mixin.desktop{
-            width: 7.5rem;
-            height: 1.563rem;
+            width: 120px;
+            height: 25px;
             position: absolute;
             top: -5.625rem;
             right: 0;

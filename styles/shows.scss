@@ -1,50 +1,37 @@
 @use './partials/mixins' as mixin;
-@import './partials/variables';
-@import './partials/global';
+@use './partials/variables' as vars;
+@use './partials/global' as global;
 
 //styling for the hero section
+
 .hero{
+    @include global.hero-base;
+
     background-image: url(../assets/Images/hero-shows.jpg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
     flex-direction: column;
-    position: relative;
     aspect-ratio: 10/6;
     gap: 1.875rem;
     padding: 3.125rem 1.375rem;
 
     @include mixin.tablet{
         aspect-ratio: 9/5;
-        padding: 1.875rem $padding-tablet 1.875rem $padding-tablet;
+        padding: 1.875rem vars.$padding-tablet 1.875rem vars.$padding-tablet;
         justify-content: center;
     }
 
     @include mixin.desktop{
         aspect-ratio: 4/2;
         justify-content: center;
-        padding-left: $padding-desktop;
-        padding-right: $padding-desktop;
+        padding-left: vars.$padding-desktop;
+        padding-right: vars.$padding-desktop;
         align-items: center;
         gap: 0;
     }
 
-    // 50% opacity for hero image
-    &__overlay {
-        content:'';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0; 
-        bottom: 0;
-        background: rgba(50, 50, 50, 0.5);
-        z-index: 1;
-    }
-
     &__subtext{
         margin: 0;
-        color: $primary-text-lighbg;
-        line-height: $font-line-height;
+        color: vars.$primary-text-lighbg;
+        line-height: vars.$font-line-height;
         font-size: 1.5rem;
         font-weight: 400;
         z-index: 2;
@@ -72,7 +59,7 @@
 
     &__title {
         margin:0;
-        color: $primary-text-lighbg;
+        color: vars.$primary-text-lighbg;
         font-size: 2.5rem;
         line-height: 3.75rem;
         font-weight: 600;
@@ -118,23 +105,23 @@
     padding: 0 1.375rem 1.25rem 1.375rem;
   
     @include mixin.tablet{
-        padding-left: $padding-tablet;
-        padding-right: $padding-tablet;
+        padding-left: vars.$padding-tablet;
+        padding-right: vars.$padding-tablet;
     }
 
     @include mixin.desktop{
-        padding-left: $padding-desktop;
-        padding-right: $padding-desktop;
+        padding-left: vars.$padding-desktop;
+        padding-right: vars.$padding-desktop;
         flex-direction: row;
         gap: 11.875rem;
     }
 
     &__header{
         padding-top: 2.25rem;
-        padding-bottom: $padding-after-content-mobile;
+        padding-bottom: vars.$padding-after-content-mobile;
         margin:0;
-        font-size: $header-font-size;
-        line-height: $font-line-height;
+        font-size: vars.$header-font-size;
+        line-height: vars.$font-line-height;
         font-weight: 600;
     }
 
@@ -170,7 +157,7 @@
 
         &--dateTimeLocation{
             font-size: 0.875rem;
-            color: $seconday-text-color;
+            color: vars.$seconday-text-color;
             font-weight: 600;
             width: 33%;
 
@@ -191,7 +178,7 @@
     &__heading{
         font-size: 0.875rem;
         font-weight: 600;
-        color: $seconday-text-color;
+        color: vars.$seconday-text-color;
         margin-bottom: 0.625rem;
 
         @include mixin.tablet{
@@ -221,15 +208,15 @@
         }
 
         &:hover{
-            background-color: $alabaster;
-            box-shadow: 0 0 0 5px $alabaster;
+            background-color: vars.$alabaster;
+            box-shadow: 0 0 0 5px vars.$alabaster;
             border-radius: 5px;
             cursor: pointer;
         }
 
         &--selected, &--selected:hover {
-            background-color: $mercury;
-            box-shadow: 0 0 0 10px $mercury;
+            background-color: vars.$mercury;
+            box-shadow: 0 0 0 10px vars.$mercury;
             border-radius: 5px;
         }
     }
@@ -288,7 +275,7 @@
         font-size: 1.563rem;
         font-weight: 400;
         color: white;
-        background-color: $bandsite-black;
+        background-color: vars.$bandsite-black;
         margin-top: 0.875rem;
         margin-bottom: 1.25rem;
         letter-spacing: 0.0625rem;
@@ -296,7 +283,7 @@
         
 
         &:hover{
-            background-color: $bandSite-DarkBlack;
+            background-color: vars.$bandSite-DarkBlack;
             cursor: pointer;
         }
 
@@ -320,7 +307,7 @@
 
        
     &__divider{
-        background-color: $mercury;
+        background-color: vars.$mercury;
         height: 2px;
         border: none;
         width: 100%;
