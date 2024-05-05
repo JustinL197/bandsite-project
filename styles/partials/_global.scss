@@ -244,8 +244,17 @@ body{
     }
 
     &__block{
+
         &--indentation{
-            padding-left: 0.313rem;
+
+            @include mixin.tablet{
+                padding-left: 0.313rem;
+            }
+
+            @include mixin.desktop{
+                padding-left: 0.313rem;
+            }
+            
         }
     }
 

@@ -237,8 +237,15 @@ body {
     gap: 3.75rem;
   }
 }
-.contact-info__block--indentation {
-  padding-left: 0.313rem;
+@media (min-width: 768px) and (max-width: 1279px) {
+  .contact-info__block--indentation {
+    padding-left: 0.313rem;
+  }
+}
+@media (min-width: 1280px) {
+  .contact-info__block--indentation {
+    padding-left: 0.313rem;
+  }
 }
 .contact-info__header {
   color: #FFFFFF;
