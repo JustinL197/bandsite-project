@@ -10,6 +10,7 @@ function createElementWithClass(tagName, className){
     return element
 }
 
+// function to formate the given timestamp into <weekday-month-dd-yyyy>
 function formatDate(timestamp){
     const date = new Date(timestamp);
     const formatter = new Intl.DateTimeFormat('en-US', {
@@ -115,7 +116,7 @@ function displayShow(show){
 
 createHeaderContainer();
 
-
+// function designed to retrieve shows data with GET request and display it on page.
 async function retrieveAndDisplayShows(){
     try{
         const shows = await bandSiteApi.getShows();
@@ -125,6 +126,7 @@ async function retrieveAndDisplayShows(){
     }
 }
 
+// function to add styling for selected state.
 function selectDiv(event){
     const divs = document.querySelectorAll('.shows__container');
     divs.forEach(div => {
@@ -133,6 +135,7 @@ function selectDiv(event){
     event.currentTarget.classList.add('shows__container--selected');
 }
 
+// function to apply the selectDiv function on 'click' on a show.
 function setEventListeners(){
     const divs = document.querySelectorAll('.shows__container');
     divs.forEach(div => {
@@ -140,6 +143,5 @@ function setEventListeners(){
         div.addEventListener('click', selectDiv);
     });
 }
-
 
 retrieveAndDisplayShows();

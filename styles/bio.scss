@@ -547,6 +547,31 @@
     &__invalid{
         border: 1px solid #d22d2d;
     }
+
+    //diving deeper section
+    &__like{
+        width: 20px;
+        height: 20px;
+    }
+
+    &__delete{
+        width: 18px;
+        height: 18px;
+    }
+
+    &__like-container{
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+    &__like-delete-container{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 5px;
+
+    }
 }
 
     

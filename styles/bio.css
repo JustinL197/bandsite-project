@@ -876,3 +876,22 @@ body {
 .comments__invalid {
   border: 1px solid #d22d2d;
 }
+.comments__like {
+  width: 20px;
+  height: 20px;
+}
+.comments__delete {
+  width: 18px;
+  height: 18px;
+}
+.comments__like-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.comments__like-delete-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}

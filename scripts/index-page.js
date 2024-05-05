@@ -30,6 +30,27 @@ function displayComment(comment){
     const commentElem = createElementWithClass('p', 'comments__text');
     const dividerElem = createElementWithClass('hr', 'comments__divider');
 
+    //diving deeper part
+    const likeImg = createElementWithClass('img', 'comments__like');
+    const likeCounter = createElementWithClass('span', 'comments__like-counter')
+    const deleteImg = createElementWithClass('img', 'comments__delete');
+    
+    likeImg.src = './assets/icons/icon-like.svg';
+    likeImg.alt = 'Like';
+    likeImg.title = `Like (${comment.likes || 0})`;
+    likeImg.style.cursor = 'pointer';
+    likeCounter.innerText = ` (${comment.likes || 0})`;
+
+    deleteImg.src = './assets/icons/icon-delete.svg'; // Path to your "Delete" icon
+    deleteImg.alt = 'Delete';
+    deleteImg.title = 'Delete';
+    deleteImg.style.cursor = 'pointer';
+
+    const likeContainer = createElementWithClass('div', 'comments__like-container');
+    likeContainer.append(likeImg, likeCounter)
+    const likeDeleteContainer = createElementWithClass('div', 'comments__like-delete-container');
+    likeDeleteContainer.append(likeContainer, deleteImg);
+
     //assign the appropriate values from the form to the comment elements.
     nameElem.innerText = comment.name;
     timeStampElem.innerText = formatDate(comment.timestamp);
@@ -40,7 +61,7 @@ function displayComment(comment){
     //append the name and date to its container
     nameTimeContainerElem.append(nameElem, timeStampElem);
     //append both items to its container 
-    subcontainerElem.append(nameTimeContainerElem, commentContainerElem);
+    subcontainerElem.append(nameTimeContainerElem, commentContainerElem, likeDeleteContainer);
     //append the subcontainer and avatar to the main container
     containerElem.append(avatarElem, subcontainerElem);
     //append comment to the section
@@ -48,6 +69,25 @@ function displayComment(comment){
     
     //create a divider 
     commentsSection.appendChild(dividerElem);
+
+    //diving deeper part 
+    likeImg.addEventListener('click', async () => {
+        try {
+            await bandSiteApi.likeComment(comment.id);
+            await retrieveAndDisplayComments();
+        } catch (error) {
+            console.error('Failed to like comment:', error);
+        }
+    })
+
+    deleteImg.addEventListener('click', async () => {
+        try {
+            await bandSiteApi.deleteComment(comment.id);
+            await retrieveAndDisplayComments();
+        } catch (error) {
+            console.error('Failed to delete comment:', error);
+        }
+    })
 }
 
 //function to create a comment object from the form
@@ -72,6 +112,7 @@ function resetFormField(){
     document.querySelector('.add-comments__form').reset();
 }
 
+//check validity on client-side to prevent unneccessary requests to server-side.
 function checkValidity(){
     let validator = true;
 
@@ -95,9 +136,9 @@ function checkValidity(){
 //function to retrieve comments from backend and display it
 async function retrieveAndDisplayComments(){
     try{
-       const comments = await bandSiteApi.getComments();
-       clearSection();
-       comments.forEach(comment => displayComment(comment));
+    const comments = await bandSiteApi.getComments();
+    clearSection();
+    comments.forEach(comment => displayComment(comment));
     } catch (error){
         console.error('Failed to load comments:', error);
     }
@@ -124,4 +165,5 @@ async function handleFormSubmit(event){
 document.addEventListener('DOMContentLoaded', () => {
     retrieveAndDisplayComments();
     document.querySelector('.add-comments__form').addEventListener('submit', handleFormSubmit);
-});
+})
+
