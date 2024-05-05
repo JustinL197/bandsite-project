@@ -10,7 +10,6 @@ export class BandSiteApi{
         try {
             const response = await axios.post(`${this.baseUrl}/comments?api_key=${this.apiKey}`,
             comment, {headers: {'Content-Type': 'application/json'}});
-    
             return response.data;
         }
         
@@ -56,13 +55,10 @@ export class BandSiteApi{
 
     async deleteComment(commentId){
         try {
-            const response = await axios.delete(
-                `${this.baseUrl}/comments/${commentId}?api_key=${this.apiKey}`
-            );
+            const response = await axios.delete(`${this.baseUrl}/comments/${commentId}?api_key=${this.apiKey}`);
             return response.data;
         } catch (error) {
             console.error('Error deleting comment:', error.message);
-            throw error;
         }
     }
 }

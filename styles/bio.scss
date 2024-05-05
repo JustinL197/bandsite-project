@@ -562,14 +562,14 @@
     &__like-container{
         display: flex;
         align-items: center;
-        gap: 2px;
+        gap: 0.125rem;
     }
 
     &__like-delete-container{
         display: flex;
         justify-content: end;
         align-items: center;
-        gap: 5px;
+        gap: 0.313rem;
 
     }
 }
